@@ -3,8 +3,12 @@ import EventEmitter from "es-event-emitter";
 
 export default class P2PMessenger extends EventEmitter {
 	constructor() {
-		zeroPage.on("peerBroadcast", ({params}) => {
-			this.emit("recv", params);
+		zeroPage.on("peerReceive", ({params}) => {
+			if(params.broadcast) {
+				this.emit("recvBroadcast", params);
+			} else {
+				this.emit("recv", params);
+			}
 		});
 	}
 

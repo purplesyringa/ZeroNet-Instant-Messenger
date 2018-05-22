@@ -1,6 +1,6 @@
 <template>
 	<div style="width: 100%; height: 100%;">
-		<v-navigation-drawer v-model="drawer" class="pb-0" floating hide-overlay stateless absolute="true" app>
+		<v-navigation-drawer v-model="drawer" class="pb-0" hide-overlay stateless absolute="true" app>
 			<v-layout fill-height>
 				<v-navigation-drawer
 				dark
@@ -49,19 +49,19 @@
 				</v-list>
 			</v-layout>
 		</v-navigation-drawer>
-		<v-content app style="width: 100%; height: 100%; padding-left: 0; padding-right: 0;">
+		<v-content app style="height: 100%; padding-left: 0; padding-right: 0;">
 			<div style="padding: 10px; padding-left: 15px; padding-right: 15px;">
 				<div v-for="(message, index) in messages" style="margin-bottom: 5px;">
-					<strong style="font-size: 1.2em;">{{ message.username }}</strong>
+					<strong style="font-size: 1.2em;" v-if="(index > 0 &&messages[index - 1].username != message.username) || index == 0">{{ message.username }}</strong>
 					<div>{{ message.text }}</div>
 				</div>
 			</div>
 			<!--<v-card height="200px">-->
-				<v-bottom-nav :value="true" :active.sync="e2" :color="color" shift>
+				<v-bottom-nav absolute :value="true" :active.sync="e2" :color="color">
 				</v-bottom-nav>
 			<!--</v-card>-->
 		</v-content>
-		<v-navigation-drawer app v-model="drawer2" absolute="true" right fill-height>
+		<v-navigation-drawer dark app v-model="drawer2" absolute="true" right>
 		</v-navigation-drawer>
 	</div>
 </template>
@@ -85,6 +85,7 @@
 					{ username: "Krixano", text: "Testing" },
 					{ username: "Git Center", text: "Blah Blah Blah" },
 					{ username: "Thunder", text: "test-in" },
+					{ username: "Thunder", text: "Another message sent!" },
 				]
 			};
 		}

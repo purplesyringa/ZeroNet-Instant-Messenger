@@ -12,7 +12,7 @@
 					<v-list class="pa-0">
 						<v-list-tile avatar>
 							<v-list-tile-avatar>
-								<img src="https://randomuser.me/api/portraits/men/85.jpg" >
+								<img src="https://randomuser.me/api/portraits/men/85.jpg" style="margin-bottom: 7px;">
 							</v-list-tile-avatar>
 							<v-list-tile-content>
 								<v-list-tile-title>John Leider</v-list-tile-title>
@@ -48,7 +48,7 @@
 				</v-list>
 			</v-layout>
 		</v-navigation-drawer>
-		<v-content style="width: 100%; height: 100%; padding-left: 0;" >
+		<v-content style="width: 100%; height: 100%; padding-left: 0;">
 			<div fill-height>Testing</div>
 			<!--<v-card height="200px">-->
 				<v-bottom-nav :value="true" :active.sync="e2" :color="color" absolute shift>
@@ -65,24 +65,15 @@
 			return {
 				drawer: true,
 				items: [
-				{ title: 'Home', icon: 'dashboard' },
-				{ title: "About", icon: 'question_answer' },
+					{ title: 'Home', icon: 'dashboard' },
+					{ title: "About", icon: 'settings' },
 				],
-				links: ['Home', 'Contacts', 'Settings'],
+				links: ['Lobby', 'Group-Test', 'Group-Num2'],
 				mini: true,
 				right: null,
-				e2: 3
+				e2: 3,
+				color: 'blue-grey'
 			};
-		},
-		computed: {
-			color() {
-				switch (this.e2) {
-					case 0: return 'blue-grey'
-					case 1: return 'teal'
-					case 2: return 'brown'
-					case 3: return 'indigo'
-				}
-			}
 		}
 	};
 </script>

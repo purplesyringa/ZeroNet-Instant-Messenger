@@ -38,6 +38,7 @@
 				</v-list>
 				</v-navigation-drawer>
 				<v-list class="grow">
+					<v-subheader>Channels</v-subheader>
 					<v-list-tile
 					v-for="link in links"
 					:key="link"

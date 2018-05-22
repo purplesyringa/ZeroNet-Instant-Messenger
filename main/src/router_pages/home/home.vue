@@ -37,7 +37,7 @@
 					</v-list-tile>
 				</v-list>
 				</v-navigation-drawer>
-				<v-list class="grow">
+				<v-list class="grow" dense>
 					<v-subheader>Channels</v-subheader>
 					<v-list-tile
 					v-for="link in links"
@@ -61,7 +61,7 @@
 				</v-bottom-nav>
 			<!--</v-card>-->
 		</v-content>
-		<v-navigation-drawer dark app v-model="drawer2" absolute="true" right>
+		<v-navigation-drawer dark app v-model="drawer2" absolute="true" right hide-overlay>
 		</v-navigation-drawer>
 	</div>
 </template>

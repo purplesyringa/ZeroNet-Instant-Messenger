@@ -9,6 +9,8 @@ import Vuetify from "vuetify";
 Vue.use(Vuetify);
 import "vuetify/dist/vuetify.min.css";
 
+import "material-icons/iconfont/material-icons.css";
+
 Vue.prototype.$eventBus = new Vue();
 
 import root from "./vue_components/root.vue";

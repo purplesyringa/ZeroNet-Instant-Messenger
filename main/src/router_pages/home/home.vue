@@ -1,6 +1,6 @@
 <template>
 	<div style="width: 100%; height: 100%;">
-		<v-navigation-drawer v-model="drawer" class="pb-0" hide-overlay stateless absolute="true" app>
+		<v-navigation-drawer v-model="drawer" class="pb-0" hide-overlay  stateless absolute="true" app>
 			<v-layout fill-height>
 				<v-navigation-drawer
 				dark
@@ -10,9 +10,9 @@
 				>
 				<v-toolbar flat class="transparent">
 					<v-list class="pa-0">
-						<v-list-tile avatar>
+						<v-list-tile avatar style="margin-bottom: 7px;">
 							<v-list-tile-avatar>
-								<img src="https://randomuser.me/api/portraits/men/85.jpg" style="margin-bottom: 7px;">
+								<img src="https://randomuser.me/api/portraits/men/85.jpg">
 							</v-list-tile-avatar>
 							<v-list-tile-content>
 								<v-list-tile-title>John Leider</v-list-tile-title>
@@ -49,20 +49,26 @@
 				</v-list>
 			</v-layout>
 		</v-navigation-drawer>
-		<v-content app style="height: 100%; padding-left: 0; padding-right: 0;">
-			<div style="padding: 10px; padding-left: 15px; padding-right: 15px;">
-				<div v-for="(message, index) in messages" style="margin-bottom: 5px;">
-					<strong style="font-size: 1.2em;" v-if="(index > 0 &&messages[index - 1].username != message.username) || index == 0">{{ message.username }}</strong>
-					<div>{{ message.text }}</div>
+		<v-toolbar app dense>
+			<v-toolbar-side-icon></v-toolbar-side-icon>
+			<v-toolbar-title>ZChat</v-toolbar-title>
+		</v-toolbar>
+		<v-navigation-drawer dark app v-model="drawer2" absolute="true" right>
+		</v-navigation-drawer>
+		<v-content style="padding-left: 0; padding-right: 0; padding-top: 0;">
+			<v-layout>
+				<div style="padding: 10px; padding-left: 15px; padding-right: 15px;">
+					<div v-for="(message, index) in messages" style="margin-bottom: 5px;">
+						<strong style="font-size: 1.2em;" v-if="(index > 0 &&messages[index - 1].username != message.username) || index == 0">{{ message.username }}</strong>
+						<div>{{ message.text }}</div>
+					</div>
 				</div>
-			</div>
-			<!--<v-card height="200px">-->
+				<!--<v-card height="200px">-->
 				<v-bottom-nav absolute :value="true" :active.sync="e2" :color="color">
 				</v-bottom-nav>
-			<!--</v-card>-->
+				<!--</v-card>-->
+			</v-layout>
 		</v-content>
-		<v-navigation-drawer dark app v-model="drawer2" absolute="true" right hide-overlay>
-		</v-navigation-drawer>
 	</div>
 </template>
 

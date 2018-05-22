@@ -49,7 +49,12 @@
 			</v-layout>
 		</v-navigation-drawer>
 		<v-content style="width: 100%; height: 100%; padding-left: 0;">
-			<div fill-height>Testing</div>
+			<div style="padding: 10px; padding-left: 15px; padding-right: 15px;">
+				<div v-for="(message, index) in messages" style="margin-bottom: 5px;">
+					<strong style="font-size: 1.2em;">{{ message.username }}</strong>
+					<div>{{ message.text }}</div>
+				</div>
+			</div>
 			<!--<v-card height="200px">-->
 				<v-bottom-nav :value="true" :active.sync="e2" :color="color" absolute shift>
 				</v-bottom-nav>
@@ -72,7 +77,12 @@
 				mini: true,
 				right: null,
 				e2: 3,
-				color: 'blue-grey'
+				color: 'blue-grey',
+				messages: [
+					{ username: "Krixano", text: "Testing" },
+					{ username: "Git Center", text: "Blah Blah Blah" },
+					{ username: "Thunder", text: "test-in" },
+				]
 			};
 		}
 	};

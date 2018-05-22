@@ -50,6 +50,9 @@ module.exports = {
 								"transform-class-properties"
 							]
 						}
+					},
+					{
+						loader: "eslint-loader"
 					}
 				],
 				exclude: /node_modules/

@@ -1,4 +1,4 @@
-import ZeroFrame from "./libs/ZeroFrame.js";
+import ZeroFrame from "zero-dev-lib/ZeroFrame.js";
 const zf = new ZeroFrame();
 
 import ZeroPage from "zero-dev-lib/ZeroPage";
@@ -32,7 +32,7 @@ export const route = vue => {
 				const oldView = vue.currentView;
 
 				route.controller(params);
-				if(oldView == vue.currentView) {
+				if(oldView === vue.currentView) {
 					vue.currentView = null;
 					vue.$nextTick(() => vue.currentView = oldView);
 				}

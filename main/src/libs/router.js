@@ -24,7 +24,7 @@ module.exports = class Router {
 		this.routes.push(route);
 	}
 	remove(arg) {
-		let index = this.routes.findIndex(route => route.controller == arg || route.path == arg);
+		let index = this.routes.findIndex(route => route.controller === arg || route.path === arg);
 		if(index > -1) {
 			this.routes.splice(index, 1);
 		}
@@ -38,7 +38,7 @@ module.exports = class Router {
 					new RegExp(
 						"^" +
 						route.path
-							.replace(/:([^\/]+)/g, "([^\/]*)")
+							.replace(/:([^/]+)/g, "([^/]*)")
 							.replace(/\*/g, '(?:[^/]*)') +
 						"$"
 					)
@@ -47,7 +47,7 @@ module.exports = class Router {
 			if(match) {
 				match.shift(); // Shift [0] which has all the pattern
 
-				let keys = route.path.match(/:([^\/]+)/g);
+				let keys = route.path.match(/:([^/]+)/g);
 				let routeParams = {};
 				match.forEach((value, i) => {
 					routeParams[keys[i].replace(":", "")] = value;
@@ -73,7 +73,6 @@ module.exports = class Router {
 	navigate(path, doPush=true) {
 		path = path || "";
 
-		let previousRoute = this.currentRoute;
 		if(doPush) {
 			this.zeroPage.cmd("wrapperPushState", [{route: path}, path, "/" + this.clearSlashes(path)])
 		}

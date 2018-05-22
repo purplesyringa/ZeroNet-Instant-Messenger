@@ -1,5 +1,5 @@
 {
-  "name": "zms",
+  "name": "ZeroNet-Instant-Messenger",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/imachug/zms.git"
+    "url": "git+https://github.com/imachug/ZeroNet-Instant-Messenger.git"
   },
   "keywords": [],
   "author": "Ivanq",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/imachug/zms/issues"
+    "url": "https://github.com/imachug/ZeroNet-Instant-Messenger/issues"
   },
-  "homepage": "https://github.com/imachug/zms#readme",
+  "homepage": "https://github.com/imachug/ZeroNet-Instant-Messenger#readme",
   "description": "ZeroNet Management System",
   "devDependencies": {
     "babel-core": "^6.26.0",

@@ -88,29 +88,17 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			title: "ZMS",
+			title: "ZeroNet Instant Messenger",
 			template: "./index.html",
 			seo: {
-				keywords: "press,zms,zeronet,cms",
-				description: "ZeroNet Management System"
+				keywords: "fast,nice,messenger,zeronet,cms",
+				description: "ZeroNet Instant Messenger"
 			}
 		}),
 		new CopyWebpackPlugin([
 			{
-				from: "./dbschema.json",
-				to: "./dbschema.json"
-			}
-		]),
-		new CopyWebpackPlugin([
-			{
 				from: "./content.json",
 				to: "./content.json"
-			}
-		]),
-		new CopyWebpackPlugin([
-			{
-				from: "./data",
-				to: "./data"
 			}
 		])
 	]

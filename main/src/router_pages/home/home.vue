@@ -49,7 +49,7 @@
 				</v-list>
 			</v-layout>
 		</v-navigation-drawer>
-		<v-content style="width: 100%; height: 100%; padding-left: 0;">
+		<v-content app style="width: 100%; height: 100%; padding-left: 0; padding-right: 0;">
 			<div style="padding: 10px; padding-left: 15px; padding-right: 15px;">
 				<div v-for="(message, index) in messages" style="margin-bottom: 5px;">
 					<strong style="font-size: 1.2em;">{{ message.username }}</strong>
@@ -57,10 +57,12 @@
 				</div>
 			</div>
 			<!--<v-card height="200px">-->
-				<v-bottom-nav :value="true" :active.sync="e2" :color="color" absolute shift>
+				<v-bottom-nav :value="true" :active.sync="e2" :color="color" shift>
 				</v-bottom-nav>
 			<!--</v-card>-->
 		</v-content>
+		<v-navigation-drawer app v-model="drawer2" absolute="true" right fill-height>
+		</v-navigation-drawer>
 	</div>
 </template>
 

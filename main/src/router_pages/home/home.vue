@@ -43,7 +43,7 @@
 					v-for="link in links"
 					:key="link"
 					@click=""
-					>
+					class="active">
 						<v-list-tile-title v-text="link"></v-list-tile-title>
 					</v-list-tile>
 				</v-list>
@@ -67,7 +67,7 @@
 					<v-text-field
 					          name="Message"
 					          value="Testing"
-					          multi-line style="margin: 0;" color="white"></v-text-field>
+					          multi-line style="margin: 0; color: white;" color="white"></v-text-field>
 				</div>
 				<!--<v-bottom-nav absolute :value="true" :color="color" style="height: 50px; padding: 0;">
 					
@@ -84,7 +84,7 @@
 			return {
 				drawer: true,
 				items: [
-					{ title: 'Home', icon: 'dashboard' },
+					{ title: 'Channels', icon: 'chat', active: true },
 					{ title: "About", icon: 'settings' },
 				],
 				links: ['Lobby', 'Group-Test', 'Group-Num2'],

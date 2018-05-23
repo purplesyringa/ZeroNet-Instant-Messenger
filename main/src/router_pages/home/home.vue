@@ -57,13 +57,13 @@
 		</v-navigation-drawer>
 		<v-content style="padding-left: 0; padding-right: 0; padding-top: 0;" class="fill-height">
 			<v-card class="fill-height" style="height: 100%;" flat>
-				<div style="padding: 10px; padding-left: 15px; padding-right: 15px;">
+				<div style="padding: 10px; padding-left: 15px; padding-right: 15px; overflow-y: scroll; height: 100%; width: 100%; position: absolute; padding-bottom: 50px;">
 					<div v-for="(message, index) in messages" style="margin-bottom: 5px;">
 						<strong style="font-size: 1.2em;" v-if="(index > 0 &&messages[index - 1].username != message.username) || index == 0">{{ message.username }}</strong>
 						<div>{{ message.text }}</div>
 					</div>
 				</div>
-				<v-bottom-nav absolute :value="true" :color="color">
+				<v-bottom-nav absolute :value="true" :color="color" style="height: 50px;">
 				</v-bottom-nav>
 			</v-card>
 		</v-content>
@@ -88,7 +88,19 @@
 					{ username: "Krixano", text: "Testing" },
 					{ username: "Git Center", text: "Blah Blah Blah" },
 					{ username: "Thunder", text: "test-in" },
-					{ username: "Thunder", text: "Another message sent!" },
+					{ username: "Thunder", text: "Lorem Ipsum Dolor Amet!" },
+					{ username: "Thunder", text: "Lorem Ipsum Dolor Amet!" },
+					{ username: "Git Center", text: "Lorem Ipsum Dolor Amet!" },
+					{ username: "Thunder", text: "Lorem Ipsum Dolor Amet!" },
+					{ username: "Glightstar", text: "Lorem Ipsum Dolor Amet!" },
+					{ username: "Krixano", text: "Lorem Ipsum Dolor Amet!" },
+					{ username: "Krixano", text: "Lorem Ipsum Dolor Amet!" },
+					{ username: "Thunder", text: "Lorem Ipsum Dolor Amet!" },
+					{ username: "Git Center", text: "Lorem Ipsum Dolor Amet!" },
+					{ username: "Thunder", text: "Lorem Ipsum Dolor Amet!" },
+					{ username: "Thunder", text: "Lorem Ipsum Dolor Amet!" },
+					{ username: "Thunder", text: "Lorem Ipsum Dolor Amet!" },
+					{ username: "Git Center", text: "Lorem Ipsum Dolor Amet!" },
 				]
 			};
 		}

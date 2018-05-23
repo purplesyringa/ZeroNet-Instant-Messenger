@@ -1,6 +1,6 @@
 <template>
 	<div style="width: 100%; height: 100%;">
-		<v-navigation-drawer v-model="drawer" class="pb-0" hide-overlay  stateless absolute="true" app>
+		<v-navigation-drawer v-model="drawer" class="pb-0" hide-overlay stateless app>
 			<v-layout fill-height>
 				<v-navigation-drawer
 				dark
@@ -51,23 +51,21 @@
 		</v-navigation-drawer>
 		<v-toolbar app dense>
 			<v-toolbar-side-icon></v-toolbar-side-icon>
-			<v-toolbar-title>ZChat</v-toolbar-title>
+			<v-toolbar-title>ZeroNet Instant Messenger</v-toolbar-title>
 		</v-toolbar>
-		<v-navigation-drawer dark app v-model="drawer2" absolute="true" right>
+		<v-navigation-drawer clipped dark app v-model="drawer2" right width="250">
 		</v-navigation-drawer>
-		<v-content style="padding-left: 0; padding-right: 0; padding-top: 0;">
-			<v-layout>
+		<v-content style="padding-left: 0; padding-right: 0; padding-top: 0;" class="fill-height">
+			<v-card class="fill-height" style="height: 100%;" flat>
 				<div style="padding: 10px; padding-left: 15px; padding-right: 15px;">
 					<div v-for="(message, index) in messages" style="margin-bottom: 5px;">
 						<strong style="font-size: 1.2em;" v-if="(index > 0 &&messages[index - 1].username != message.username) || index == 0">{{ message.username }}</strong>
 						<div>{{ message.text }}</div>
 					</div>
 				</div>
-				<!--<v-card height="200px">-->
-				<v-bottom-nav absolute :value="true" :active.sync="e2" :color="color">
+				<v-bottom-nav absolute :value="true" :color="color">
 				</v-bottom-nav>
-				<!--</v-card>-->
-			</v-layout>
+			</v-card>
 		</v-content>
 	</div>
 </template>
@@ -85,7 +83,6 @@
 				links: ['Lobby', 'Group-Test', 'Group-Num2'],
 				mini: true,
 				right: null,
-				e2: 3,
 				color: 'blue-grey',
 				messages: [
 					{ username: "Krixano", text: "Testing" },

@@ -1,6 +1,6 @@
 <template>
 	<div style="width: 100%; height: 100%;">
-		<v-navigation-drawer v-model="drawer" class="pb-0" hide-overlay stateless app>
+		<v-navigation-drawer v-model="drawer" class="pb-0 elevation-4" hide-overlay stateless app>
 			<v-layout fill-height>
 				<v-navigation-drawer
 				dark
@@ -49,11 +49,11 @@
 				</v-list>
 			</v-layout>
 		</v-navigation-drawer>
-		<v-toolbar app dense>
+		<v-toolbar app dense class="elevation-3">
 			<v-toolbar-side-icon></v-toolbar-side-icon>
 			<v-toolbar-title>ZeroNet Instant Messenger</v-toolbar-title>
 		</v-toolbar>
-		<v-navigation-drawer clipped dark app v-model="drawer2" right width="250">
+		<v-navigation-drawer clipped dark app v-model="drawer2" right width="250" class="elevation-2">
 		</v-navigation-drawer>
 		<v-content style="padding-left: 0; padding-right: 0; padding-top: 0;" class="fill-height">
 			<v-card class="fill-height" style="height: 100%;" flat>
@@ -63,8 +63,15 @@
 						<div>{{ message.text }}</div>
 					</div>
 				</div>
-				<v-bottom-nav absolute :value="true" :color="color" style="height: 50px;">
-				</v-bottom-nav>
+				<div class="elevation-2" style="position: absolute; bottom: 0; width: 100%; height: 50px; background: #424242; color: white; padding: 3px;">
+					<v-text-field
+					          name="Message"
+					          value="Testing"
+					          multi-line style="margin: 0;" color="white"></v-text-field>
+				</div>
+				<!--<v-bottom-nav absolute :value="true" :color="color" style="height: 50px; padding: 0;">
+					
+				</v-bottom-nav>-->
 			</v-card>
 		</v-content>
 	</div>

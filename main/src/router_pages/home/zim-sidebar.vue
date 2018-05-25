@@ -17,7 +17,8 @@
 			<li class="divider" />
 
 			<li @click="collapsed = !collapsed">
-				<icon class="icon" name="chevron-left" />Collapse
+				<icon class="icon" name="chevron-right" v-if="collapsed" />
+				<icon class="icon" name="chevron-left" v-else />Collapse
 			</li>
 		</ul>
 
@@ -136,6 +137,7 @@
 	import "vue-awesome/icons/comment";
 	import "vue-awesome/icons/cog";
 	import "vue-awesome/icons/chevron-left";
+	import "vue-awesome/icons/chevron-right";
 
 	export default {
 		name: "zim-sidebar",
@@ -147,7 +149,7 @@
 				],
 				links: ["Lobby", "Group-Test", "Group-Num2", "jhkjhjuiyhuihuihygujhjhjk", "gfdgf gsfgs gsd fg fg sdfg sdfgsdg sgdf gsd sgdf gdf"],
 
-				collapsed: false
+				collapsed: true
 			};
 		}
 	};

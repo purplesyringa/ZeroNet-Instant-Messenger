@@ -68,6 +68,16 @@
 
 	.divider
 		display: block !important
+
+
+	.navigation-drawer
+		flex: 0 0 180px !important
+		transition-property: all !important
+	.navigation-drawer--mini-variant
+		flex: 0 0 80px !important
+
+	.list.grow
+		width: 0
 </style>
 
 <script type="text/javascript">
@@ -80,8 +90,8 @@
 					{ title: "Channels", icon: "chat", active: true },
 					{ title: "About", icon: "settings" },
 				],
-				links: ["Lobby", "Group-Test", "Group-Num2"],
-				mini: true
+				links: ["Lobby", "Group-Test", "Group-Num2", "jhkjhjuiyhuihuihygujhjhjk", "gfdgf gsfgs gsd fg fg sdfg sdfgsdg sgdf gsd sgdf gdf"],
+				mini: false
 			};
 		}
 	};

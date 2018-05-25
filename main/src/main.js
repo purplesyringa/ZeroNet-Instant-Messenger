@@ -1,11 +1,18 @@
 import "./sass/main.sass";
 
+// Vue.js
 import Vue from "vue/dist/vue.min.js";
 
+// asyncComputed
 import AsyncComputed from "vue-async-computed";
 Vue.use(AsyncComputed);
 
+// Material icons
 import "material-icons/iconfont/material-icons.css";
+
+// Font Awesome
+import Icon from "vue-awesome/components/Icon.vue";
+Vue.component("icon", Icon);
 
 Vue.prototype.$eventBus = new Vue();
 

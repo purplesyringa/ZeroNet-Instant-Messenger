@@ -1,4 +1,4 @@
-import {zeroPage} from "../route.js";
+import {zeroPage} from "route.js";
 import EventEmitter from "es-event-emitter";
 
 export default class P2PMessenger extends EventEmitter {

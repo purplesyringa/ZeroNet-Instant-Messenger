@@ -5,10 +5,6 @@ import Vue from "vue/dist/vue.min.js";
 import AsyncComputed from "vue-async-computed";
 Vue.use(AsyncComputed);
 
-import Vuetify from "vuetify";
-Vue.use(Vuetify);
-import "vuetify/dist/vuetify.min.css";
-
 import "material-icons/iconfont/material-icons.css";
 
 Vue.prototype.$eventBus = new Vue();

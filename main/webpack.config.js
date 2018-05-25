@@ -4,6 +4,22 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
+function genSass(indentedSyntax) {
+	return [
+		"style-loader",
+		"css-loader",
+		"sass-loader" + (indentedSyntax ? "?indentedSyntax" : ""),
+		{
+			loader: "sass-resources-loader",
+			options: {
+				resources: [
+					path.resolve(__dirname, "./src/sass/global.sass")
+				]
+			}
+		}
+	];
+}
+
 module.exports = {
 	context: path.resolve(__dirname, "./src"),
 	entry: {
@@ -21,8 +37,8 @@ module.exports = {
 				loader: "vue-loader",
 				options: {
 					loaders: {
-						scss: "vue-style-loader!css-loader!sass-loader",
-						sass: "vue-style-loader!css-loader!sass-loader?indentedSyntax",
+						scss: genSass(false),
+						sass: genSass(true)
 					}
 				}
 			},
@@ -31,8 +47,12 @@ module.exports = {
 				loader: "style-loader!css-loader"
 			},
 			{
-				test: /\.s[ac]ss$/,
-				loader: "style-loader!css-loader!sass-loader?indentedSyntax"
+				test: /\.scss$/,
+				loader: genSass(false)
+			},
+			{
+				test: /\.sass$/,
+				loader: genSass(true)
 			},
 			{
 				test: /\.js$/,

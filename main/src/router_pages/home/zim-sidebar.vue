@@ -32,16 +32,11 @@
 </template>
 
 <style lang="sass" scoped>
-	$dark-color: #222
-	$dark-fg: #000
-	$light-color: #FFF
-	$light-fg: #FFF
-
-
 	.sidebar
 		display: block
 		float: left
 		width: 310px
+		flex: 0 0 310px
 		height: 100%
 
 		box-shadow: 4px 0 4px darken($light-color, 5%)
@@ -118,7 +113,7 @@
 	.left li
 		width: 200px
 	.left li:hover
-		background: lighten($dark-color, 5%)
+		background-color: lighten($dark-color, 5%)
 	.left .divider
 		background-color: lighten($dark-color, 5%)
 	.left .header
@@ -128,10 +123,10 @@
 
 	.right
 		width: 230px
-		background-color: $light-color
+		background-color: darken($light-color, 2%)
 		color: $dark-fg
 	.right li:hover
-		background: darken($light-color, 5%)
+		background-color: darken($light-color, 5%)
 	.right .divider
 		background-color: darken($light-color, 5%)
 	.right .header

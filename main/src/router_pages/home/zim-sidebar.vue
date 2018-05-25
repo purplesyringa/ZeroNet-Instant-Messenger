@@ -91,7 +91,7 @@
 					{ title: "About", icon: "settings" },
 				],
 				links: ["Lobby", "Group-Test", "Group-Num2", "jhkjhjuiyhuihuihygujhjhjk", "gfdgf gsfgs gsd fg fg sdfg sdfgsdg sgdf gsd sgdf gdf"],
-				mini: false
+				mini: true
 			};
 		}
 	};

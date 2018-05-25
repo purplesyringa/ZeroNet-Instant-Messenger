@@ -2,18 +2,20 @@
 	<div class="sidebar">
 		<!-- Channel list -->
 		<ul :class="{dragging}" :style="{width: width + 'px'}">
-			<li class="header">Channels & users</li>
+			<li class="header">
+				<icon name="circle" style="color:green" />
+				Online
+			</li>
 			<li class="divider" />
 
 			<div class="scrollable">
 				<li v-for="channel in channels" @click="showChannel(channel.name)" :class="{active: current === '#' + channel.name}">
-					<div class="avatar avatar-hashtag">
-						<icon name="hashtag" class="hashtag" />
-					</div>
 					<div :class="['name', {'name-only': !channel.description}]">#{{channel.name}}</div>
 					<div class="user-info">{{channel.description}}</div>
 					<div class="clearfix" />
 				</li>
+
+				<li class="divider divider-big" />
 
 				<li v-for="user in users" @click="showUser(user.address)" :class="{active: current === '@' + user.address}">
 					<div class="avatar">
@@ -41,7 +43,7 @@
 	li:hover
 		background-color: darken($light-color, 5%)
 	.divider
-		background-color: darken($light-color, 5%)
+		background-color: darken($light-color, 20%)
 	.header
 		color: lighten($dark-fg, 50%)
 
@@ -60,8 +62,6 @@
 		overflow: hidden
 		white-space: nowrap
 		text-overflow: ellipsis
-	.name-only
-		padding-top: 12px
 
 
 	.avatar-hashtag
@@ -107,6 +107,7 @@
 
 <script type="text/javascript">
 	import "vue-awesome/icons/hashtag";
+	import "vue-awesome/icons/circle";
 
 	export default {
 		name: "zim-channels",

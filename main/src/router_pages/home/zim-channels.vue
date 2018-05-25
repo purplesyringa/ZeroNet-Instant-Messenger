@@ -10,8 +10,8 @@
 					<div class="avatar avatar-hashtag">
 						<icon name="hashtag" class="hashtag" />
 					</div>
-					<div class="name">#{{channel}}</div>
-					<div class="user-info">Channel</div>
+					<div :class="['name', {'name-only': !channel.description}]">#{{channel.name}}</div>
+					<div class="user-info">{{channel.description}}</div>
 					<div class="clearfix" />
 				</li>
 
@@ -60,6 +60,8 @@
 		overflow: hidden
 		white-space: nowrap
 		text-overflow: ellipsis
+	.name-only
+		padding-top: 12px
 
 
 	.avatar-hashtag
@@ -91,7 +93,24 @@
 		name: "zim-channels",
 		data() {
 			return {
-				channels: ["Lobby", "Group-Test", "Group-Num2", "jhkjhjuiyhuihuihygujhjhjk", "gfdgf gsfgs gsd fg fg sdfg sdfgsdg sgdf gsd sgdf gdf"],
+				channels: [
+					{
+						name: "lobby",
+						description: "Main channel"
+					},
+					{
+						name: "Group-Test"
+					},
+					{
+						name: "Group-Num2"
+					},
+					{
+						name: "jhkjhjuiyhuihuihygujhjhjk"
+					},
+					{
+						name: "gfdgf gsfgs gsd fg fg sdfg sdfgsdg sgdf gsd sgdf gdf"
+					}
+				],
 				users: [
 					{
 						certUserId: "gitcenter@zeroid.bit",

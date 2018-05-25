@@ -1,4 +1,217 @@
 <template>
+	<div class="message-list">
+		<div class="message">
+			<div class="avatar">
+				<img src="https://randomuser.me/api/portraits/men/85.jpg">
+			</div>
+
+			<div class="name">John Leider</div>
+			<div class="content">Pinging ya all!</div>
+			<div class="clearfix" />
+		</div>
+		<div class="clearfix" />
+		<div class="message">
+			<div class="avatar">
+				<img src="https://randomuser.me/api/portraits/men/85.jpg">
+			</div>
+
+			<div class="name">John Leider</div>
+			<div class="content">Anyone here?</div>
+			<div class="clearfix" />
+		</div>
+		<div class="clearfix" />
+		<div class="message">
+			<div class="avatar">
+				<img src="https://randomuser.me/api/portraits/men/85.jpg">
+			</div>
+
+			<div class="name">John Leider</div>
+			<div class="content">Hello?!</div>
+			<div class="clearfix" />
+		</div>
+		<div class="clearfix" />
+		<div class="message">
+			<div class="avatar">
+				<img src="https://randomuser.me/api/portraits/men/84.jpg">
+			</div>
+
+			<div class="name">Git Center</div>
+			<div class="content">I'm here</div>
+			<div class="clearfix" />
+		</div>
+		<div class="clearfix" />
+		<div class="message">
+			<div class="avatar">
+				<img src="https://randomuser.me/api/portraits/men/85.jpg">
+			</div>
+
+			<div class="name">John Leider</div>
+			<div class="content">Hello @gitcenter!</div>
+			<div class="clearfix" />
+		</div>
+		<div class="clearfix" />
+		<div class="message">
+			<div class="avatar">
+				<img src="https://randomuser.me/api/portraits/men/86.jpg">
+			</div>
+
+			<div class="name">Krixano</div>
+			<div class="content">Welcome back, John Leider!</div>
+			<div class="clearfix" />
+		</div>
+		<div class="clearfix" />
+		<div class="message">
+			<div class="avatar">
+				<img src="https://randomuser.me/api/portraits/men/85.jpg">
+			</div>
+
+			<div class="name">John Leider</div>
+			<div class="content">Hi @Krixano!</div>
+			<div class="clearfix" />
+		</div>
+		<div class="clearfix" />
+		<div class="message">
+			<div class="avatar">
+				<img src="https://randomuser.me/api/portraits/men/85.jpg">
+			</div>
+
+			<div class="name">John Leider</div>
+			<div class="content">Pinging ya all!</div>
+			<div class="clearfix" />
+		</div>
+		<div class="clearfix" />
+		<div class="message">
+			<div class="avatar">
+				<img src="https://randomuser.me/api/portraits/men/85.jpg">
+			</div>
+
+			<div class="name">John Leider</div>
+			<div class="content">Anyone here?</div>
+			<div class="clearfix" />
+		</div>
+		<div class="clearfix" />
+		<div class="message">
+			<div class="avatar">
+				<img src="https://randomuser.me/api/portraits/men/85.jpg">
+			</div>
+
+			<div class="name">John Leider</div>
+			<div class="content">Hello?!</div>
+			<div class="clearfix" />
+		</div>
+		<div class="clearfix" />
+		<div class="message">
+			<div class="avatar">
+				<img src="https://randomuser.me/api/portraits/men/84.jpg">
+			</div>
+
+			<div class="name">Git Center</div>
+			<div class="content">I'm here</div>
+			<div class="clearfix" />
+		</div>
+		<div class="clearfix" />
+		<div class="message">
+			<div class="avatar">
+				<img src="https://randomuser.me/api/portraits/men/85.jpg">
+			</div>
+
+			<div class="name">John Leider</div>
+			<div class="content">Hello @gitcenter!</div>
+			<div class="clearfix" />
+		</div>
+		<div class="clearfix" />
+		<div class="message">
+			<div class="avatar">
+				<img src="https://randomuser.me/api/portraits/men/86.jpg">
+			</div>
+
+			<div class="name">Krixano</div>
+			<div class="content">Welcome back, John Leider!</div>
+			<div class="clearfix" />
+		</div>
+		<div class="clearfix" />
+		<div class="message">
+			<div class="avatar">
+				<img src="https://randomuser.me/api/portraits/men/85.jpg">
+			</div>
+
+			<div class="name">John Leider</div>
+			<div class="content">Hi @Krixano!</div>
+			<div class="clearfix" />
+		</div>
+		<div class="clearfix" />
+		<div class="message">
+			<div class="avatar">
+				<img src="https://randomuser.me/api/portraits/men/85.jpg">
+			</div>
+
+			<div class="name">John Leider</div>
+			<div class="content">Pinging ya all!</div>
+			<div class="clearfix" />
+		</div>
+		<div class="clearfix" />
+		<div class="message">
+			<div class="avatar">
+				<img src="https://randomuser.me/api/portraits/men/85.jpg">
+			</div>
+
+			<div class="name">John Leider</div>
+			<div class="content">Anyone here?</div>
+			<div class="clearfix" />
+		</div>
+		<div class="clearfix" />
+		<div class="message">
+			<div class="avatar">
+				<img src="https://randomuser.me/api/portraits/men/85.jpg">
+			</div>
+
+			<div class="name">John Leider</div>
+			<div class="content">Hello?!</div>
+			<div class="clearfix" />
+		</div>
+		<div class="clearfix" />
+		<div class="message">
+			<div class="avatar">
+				<img src="https://randomuser.me/api/portraits/men/84.jpg">
+			</div>
+
+			<div class="name">Git Center</div>
+			<div class="content">I'm here</div>
+			<div class="clearfix" />
+		</div>
+		<div class="clearfix" />
+		<div class="message">
+			<div class="avatar">
+				<img src="https://randomuser.me/api/portraits/men/85.jpg">
+			</div>
+
+			<div class="name">John Leider</div>
+			<div class="content">Hello @gitcenter!</div>
+			<div class="clearfix" />
+		</div>
+		<div class="clearfix" />
+		<div class="message">
+			<div class="avatar">
+				<img src="https://randomuser.me/api/portraits/men/86.jpg">
+			</div>
+
+			<div class="name">Krixano</div>
+			<div class="content">Welcome back, John Leider!</div>
+			<div class="clearfix" />
+		</div>
+		<div class="clearfix" />
+		<div class="message">
+			<div class="avatar">
+				<img src="https://randomuser.me/api/portraits/men/85.jpg">
+			</div>
+
+			<div class="name">John Leider</div>
+			<div class="content">Hi @Krixano!</div>
+			<div class="clearfix" />
+		</div>
+		<div class="clearfix" />
+	</div>
+
 	<!--
 	<v-content style="padding-left: 0; padding-right: 0; padding-top: 0;" class="fill-height">
 		<v-card class="fill-height" style="height: 100%;" flat>
@@ -18,9 +231,35 @@
 		</v-card>
 	</v-content>
 	-->
-
-	<div>Messages</div>
 </template>
+
+<style lang="sass" scoped>
+	.message-list
+		overflow-y: scroll
+		height: 100%
+
+
+	.message
+		display: block
+		margin: 16px
+
+	.avatar
+		display: inline-block
+		width: 48px
+		height: 48px
+		margin-right: 16px
+		float: left
+
+		border-radius: 50%
+		overflow: hidden
+	.avatar img
+		width: 100%
+
+	.name
+		margin-bottom: 4px
+
+		font-weight: bold
+</style>
 
 <script type="text/javascript">
 	export default {

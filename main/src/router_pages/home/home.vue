@@ -33,7 +33,8 @@
 		flex-direction: column
 
 	.message-list
-		flex: 1 0
+		flex: 1
+		min-height: 0
 </style>
 
 <script type="text/javascript">

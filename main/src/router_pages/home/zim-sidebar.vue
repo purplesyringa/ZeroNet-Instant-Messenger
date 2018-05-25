@@ -24,7 +24,7 @@
 </template>
 
 <style lang="sass" scoped>
-	@import "./sidebar.sass"
+	@import "~sass/sidebar.sass"
 
 	ul
 		width: 200px

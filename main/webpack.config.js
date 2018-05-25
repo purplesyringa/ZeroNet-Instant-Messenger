@@ -22,6 +22,9 @@ function genSass(indentedSyntax) {
 
 module.exports = {
 	context: path.resolve(__dirname, "./src"),
+	resolve: {
+		modules: [path.resolve(__dirname, "./src"), "node_modules"]
+	},
 	entry: {
 		main: ["babel-polyfill", "./main.js"]
 	},

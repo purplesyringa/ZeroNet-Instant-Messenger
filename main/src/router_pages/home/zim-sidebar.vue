@@ -17,8 +17,7 @@
 			<li class="divider" />
 
 			<li @click="collapsed = !collapsed">
-				<icon class="icon" name="chevron-right" v-if="collapsed" />
-				<icon class="icon" name="chevron-left" v-else />Collapse
+				<icon :class="['icon', {rotated: collapsed}]" name="chevron-left" />Collapse
 			</li>
 		</ul>
 
@@ -55,7 +54,7 @@
 		float: left
 		overflow: hidden
 
-		transition: width 0.3s
+		transition: all 0.3s
 
 	// <li> is an item
 	li
@@ -106,6 +105,10 @@
 
 		text-align: center
 
+		transition: all 0.3s
+	.rotated
+		transform: rotate(180deg)
+
 
 	// Different styles
 	.left
@@ -142,7 +145,6 @@
 	import "vue-awesome/icons/comment";
 	import "vue-awesome/icons/cog";
 	import "vue-awesome/icons/chevron-left";
-	import "vue-awesome/icons/chevron-right";
 
 	export default {
 		name: "zim-sidebar",

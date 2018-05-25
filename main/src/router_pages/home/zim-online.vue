@@ -8,7 +8,7 @@
 	</div>
 </template>
 
-<style lang="sass">
+<style lang="sass" scoped>
 	.online
 		display: inline-block
 		width: 230px

@@ -6,7 +6,7 @@
 			<li class="divider" />
 
 			<div class="scrollable">
-				<li v-for="channel in channels">
+				<li v-for="channel in channels" @click="showChannel(channel.name)">
 					<div class="avatar avatar-hashtag">
 						<icon name="hashtag" class="hashtag" />
 					</div>
@@ -15,7 +15,7 @@
 					<div class="clearfix" />
 				</li>
 
-				<li v-for="user in users">
+				<li v-for="user in users" @click="showUser(user.address)">
 					<div class="avatar">
 						<img src="https://randomuser.me/api/portraits/men/83.jpg">
 					</div>
@@ -153,6 +153,13 @@
 				this.dragging = false;
 				document.body.removeEventListener("mousemove", this.mouseMove);
 				document.body.removeEventListener("mouseup", this.mouseUp);
+			},
+
+			showChannel(name) {
+				this.$eventBus.$emit("showChannel", name);
+			},
+			showUser(address) {
+				this.$eventBus.$emit("showUser", address);
 			}
 		}
 	};

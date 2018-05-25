@@ -9,6 +9,7 @@
 			<div class="message-list">
 				<zim-message-list />
 			</div>
+			<zim-chatbar />
 		</div>
 
 		<!--
@@ -41,6 +42,7 @@
 	import ZiMSidebar from "./zim-sidebar.vue";
 	import ZiMHeader from "./zim-header.vue";
 	import ZiMMessageList from "./zim-message-list.vue";
+	import ZiMChatbar from "./zim-chatbar.vue";
 
 	export default {
 		name: "home",
@@ -48,6 +50,7 @@
 			"zim-sidebar": ZiMSidebar,
 			"zim-header": ZiMHeader,
 			"zim-message-list": ZiMMessageList,
+			"zim-chatbar": ZiMChatbar
 		}
 	};
 </script>

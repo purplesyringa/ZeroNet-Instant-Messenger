@@ -6,7 +6,7 @@
 			<li class="divider" />
 
 			<div class="scrollable">
-				<li v-for="channel in channels" @click="showChannel(channel.name)">
+				<li v-for="channel in channels" @click="showChannel(channel.name)" :class="{active: current === '#' + channel.name}">
 					<div class="avatar avatar-hashtag">
 						<icon name="hashtag" class="hashtag" />
 					</div>
@@ -15,7 +15,7 @@
 					<div class="clearfix" />
 				</li>
 
-				<li v-for="user in users" @click="showUser(user.address)">
+				<li v-for="user in users" @click="showUser(user.address)" :class="{active: current === '@' + user.address}">
 					<div class="avatar">
 						<img src="https://randomuser.me/api/portraits/men/83.jpg">
 					</div>
@@ -74,6 +74,25 @@
 		margin: 8px auto
 
 
+	.active
+		background-color: $dark-color
+		transition: all 0.1s
+		&:hover
+			background-color: $dark-color
+
+		.name
+			color: $light-fg
+			transition: all 0.1s
+		.user-info
+			color: darken($light-fg, 40%)
+			transition: all 0.1s
+
+		.avatar-hashtag
+			background-color: $light-color
+			color: $dark-fg
+			transition: all 0.1s
+
+
 	.resize
 		display: block
 		width: 16px
@@ -127,7 +146,9 @@
 				width: 230,
 				dragging: false,
 				mouseDownEvent: null,
-				widthBefore: null
+				widthBefore: null,
+
+				current: ""
 			};
 		},
 
@@ -157,9 +178,11 @@
 
 			showChannel(name) {
 				this.$eventBus.$emit("showChannel", name);
+				this.current = "#" + name;
 			},
 			showUser(address) {
 				this.$eventBus.$emit("showUser", address);
+				this.current = "@" + address;
 			}
 		}
 	};

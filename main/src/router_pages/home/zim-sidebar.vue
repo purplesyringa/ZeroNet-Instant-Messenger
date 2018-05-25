@@ -20,6 +20,7 @@
 					</v-list>
 				</v-toolbar>
 				<v-list class="pt-0" dense>
+					<v-divider />
 					<v-list-tile v-for="item in items" :key="item.title" @click="">
 						<v-list-tile-action>
 							<v-icon>{{ item.icon }}</v-icon>
@@ -29,6 +30,7 @@
 						</v-list-tile-content>
 					</v-list-tile>
 
+					<v-divider />
 					<v-list-tile @click="mini = !mini">
 						<v-list-tile-action>
 							<v-icon>{{mini ? "chevron_right" : "chevron_left"}}</v-icon>
@@ -63,6 +65,9 @@
 
 	.list__tile__content
 		padding-left: 8px
+
+	.divider
+		display: block !important
 </style>
 
 <script type="text/javascript">

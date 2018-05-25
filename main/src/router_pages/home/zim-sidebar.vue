@@ -1,32 +1,32 @@
 <template>
 	<div class="sidebar">
 		<!-- Main menu -->
-		<ul class="left">
+		<ul :class="['left', {collapsed}]">
 			<li>
 				<div class="avatar">
 					<img src="https://randomuser.me/api/portraits/men/85.jpg">
-				</div>
-
-				John Leider
+				</div>John Leider
 			</li>
 
 			<li class="divider" />
 
-			<li>
-				<i class="icon material-icons">chat</i>
-				Channels
-			</li>
-			<li>
-				<i class="icon material-icons">settings</i>
-				About
+			<li v-for="item in items">
+				<i class="icon material-icons">{{item.icon}}</i>{{item.title}}
 			</li>
 
 			<li class="divider" />
 
-			<li>
-				<i class="icon material-icons">chevron_left</i>
-				Collapse
+			<li @click="collapsed = !collapsed">
+				<i class="icon material-icons">chevron_left</i>Collapse
 			</li>
+		</ul>
+
+		<!-- Channel list -->
+		<ul :class="['right', {collapsed: !collapsed}]">
+			<li class="header">Channels</li>
+			<li class="divider" />
+
+			<li v-for="link in links">{{link}}</li>
 		</ul>
 	</div>
 
@@ -113,13 +113,18 @@
 	//	width: 0
 
 	$dark-color: #222
+	$dark-fg: #000
+	$light-color: #FFF
+	$light-fg: #FFF
 
 
 	.sidebar
 		display: block
 		float: left
-		width: 300px
+		width: 310px
 		height: 100%
+
+		box-shadow: 4px 0 4px darken($light-color, 5%)
 
 
 	ul
@@ -128,32 +133,37 @@
 		padding: 0
 		float: left
 
-		background-color: $dark-color
-		color: #FFF
-	.left
-		width: 220px
-
+	// <li> is an item
 	li
 		display: block
 		margin: 0
 		padding: 12px 16px
+		min-height: 24px
+
+		line-height: 20px
+		white-space: nowrap
+		text-overflow: ellipsis
+		overflow: hidden
 
 		list-style-type: none
 		cursor: pointer
-	li:hover
-		background: lighten($dark-color, 5%)
 
+	// Divider between <li>s
 	.divider
 		padding: 0
-		height: 1px
-		background-color: #444
+		min-height: 1px
+
+	// Big item, but w/o avatar
+	.header
+		padding: 24px 16px
 
 
+	// Avatar is big and circle
 	.avatar
 		display: inline-block
 		width: 48px
 		height: 48px
-		margin-right: 8px
+		margin-right: 16px
 		vertical-align: middle
 
 		overflow: hidden
@@ -161,13 +171,43 @@
 	.avatar img
 		width: 100%
 
+	// Icon is small
 	.icon
 		display: inline-block
 		width: 48px
-		margin-right: 8px
+		margin-right: 16px
 		vertical-align: middle
 
 		text-align: center
+
+
+	// Different styles
+	.left
+		width: 200px
+		background-color: $dark-color
+		color: $light-fg
+	.left li:hover
+		background: lighten($dark-color, 5%)
+	.left .divider
+		background-color: lighten($dark-color, 5%)
+	.left .header
+		color: darken($light-fg, 50%)
+	.left.collapsed
+		width: 80px
+
+	.right
+		width: 230px
+		background-color: $light-color
+		color: $dark-fg
+	.right li:hover
+		background: darken($light-color, 5%)
+	.right .divider
+		background-color: darken($light-color, 5%)
+	.right .header
+		color: lighten($dark-fg, 50%)
+		background: none !important // sorry
+	.right.collapsed
+		width: 110px
 </style>
 
 <script type="text/javascript">
@@ -175,13 +215,13 @@
 		name: "zim-sidebar",
 		data() {
 			return {
-				drawer: true,
 				items: [
-					{ title: "Channels", icon: "chat", active: true },
-					{ title: "About", icon: "settings" },
+					{title: "Channels", icon: "chat"},
+					{title: "About", icon: "settings"},
 				],
 				links: ["Lobby", "Group-Test", "Group-Num2", "jhkjhjuiyhuihuihygujhjhjk", "gfdgf gsfgs gsd fg fg sdfg sdfgsdg sgdf gsd sgdf gdf"],
-				mini: true
+
+				collapsed: false
 			};
 		}
 	};

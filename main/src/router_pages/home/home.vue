@@ -36,15 +36,6 @@
 		name: "home",
 		data() {
 			return {
-				drawer: true,
-				items: [
-					{ title: "Channels", icon: "chat", active: true },
-					{ title: "About", icon: "settings" },
-				],
-				links: ["Lobby", "Group-Test", "Group-Num2"],
-				mini: true,
-				right: null,
-				color: "blue-grey",
 				messages: [
 					{ username: "Krixano", text: "Testing" },
 					{ username: "Git Center", text: "Blah Blah Blah" },

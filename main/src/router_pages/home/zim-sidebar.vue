@@ -53,13 +53,16 @@
 		margin: 0
 		padding: 0
 		float: left
+		overflow: hidden
+
+		transition: width 0.3s
 
 	// <li> is an item
 	li
 		display: block
 		margin: 0
 		padding: 12px 16px
-		min-height: 24px
+		min-height: 46px
 
 		line-height: 20px
 		white-space: nowrap
@@ -77,7 +80,7 @@
 
 	// Big item, but w/o avatar
 	.header
-		padding: 24px 16px
+		padding: 26px 16px
 
 
 	// Avatar is big and circle
@@ -109,6 +112,8 @@
 		width: 200px
 		background-color: $dark-color
 		color: $light-fg
+	.left li
+		width: 200px
 	.left li:hover
 		background: lighten($dark-color, 5%)
 	.left .divider

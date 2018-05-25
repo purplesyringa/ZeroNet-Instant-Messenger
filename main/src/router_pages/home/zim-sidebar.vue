@@ -11,13 +11,13 @@
 			<li class="divider" />
 
 			<li v-for="item in items">
-				<i class="icon material-icons">{{item.icon}}</i>{{item.title}}
+				<icon class="icon" :name="item.icon" />{{item.title}}
 			</li>
 
 			<li class="divider" />
 
 			<li @click="collapsed = !collapsed">
-				<i class="icon material-icons">chevron_left</i>Collapse
+				<icon class="icon" name="chevron-left" />Collapse
 			</li>
 		</ul>
 
@@ -152,6 +152,7 @@
 	.divider
 		padding: 0
 		min-height: 1px
+		margin-bottom: -1px
 
 	// Big item, but w/o avatar
 	.header
@@ -175,6 +176,7 @@
 	.icon
 		display: inline-block
 		width: 48px
+		height: 20px
 		margin-right: 16px
 		vertical-align: middle
 
@@ -211,13 +213,17 @@
 </style>
 
 <script type="text/javascript">
+	import "vue-awesome/icons/comment";
+	import "vue-awesome/icons/cog";
+	import "vue-awesome/icons/chevron-left";
+
 	export default {
 		name: "zim-sidebar",
 		data() {
 			return {
 				items: [
-					{title: "Channels", icon: "chat"},
-					{title: "About", icon: "settings"},
+					{title: "Channels", icon: "comment"},
+					{title: "About", icon: "cog"},
 				],
 				links: ["Lobby", "Group-Test", "Group-Num2", "jhkjhjuiyhuihuihygujhjhjk", "gfdgf gsfgs gsd fg fg sdfg sdfgsdg sgdf gsd sgdf gdf"],
 

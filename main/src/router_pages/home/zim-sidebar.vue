@@ -62,27 +62,7 @@
 					{ title: "About", icon: "settings" },
 				],
 				links: ["Lobby", "Group-Test", "Group-Num2"],
-				mini: true,
-				right: null,
-				color: "blue-grey",
-				messages: [
-					{ username: "Krixano", text: "Testing" },
-					{ username: "Git Center", text: "Blah Blah Blah" },
-					{ username: "Thunder", text: "test-in" },
-					{ username: "Thunder", text: "Lorem Ipsum Dolor Amet!" },
-					{ username: "Thunder", text: "Lorem Ipsum Dolor Amet!" },
-					{ username: "Git Center", text: "Lorem Ipsum Dolor Amet!" },
-					{ username: "Thunder", text: "Lorem Ipsum Dolor Amet!" },
-					{ username: "Glightstar", text: "Lorem Ipsum Dolor Amet!" },
-					{ username: "Krixano", text: "Lorem Ipsum Dolor Amet!" },
-					{ username: "Krixano", text: "Lorem Ipsum Dolor Amet!" },
-					{ username: "Thunder", text: "Lorem Ipsum Dolor Amet!" },
-					{ username: "Git Center", text: "Lorem Ipsum Dolor Amet!" },
-					{ username: "Thunder", text: "Lorem Ipsum Dolor Amet!" },
-					{ username: "Thunder", text: "Lorem Ipsum Dolor Amet!" },
-					{ username: "Thunder", text: "Lorem Ipsum Dolor Amet!" },
-					{ username: "Git Center", text: "Lorem Ipsum Dolor Amet!" },
-				]
+				mini: true
 			};
 		}
 	};

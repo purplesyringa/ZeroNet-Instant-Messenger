@@ -1,215 +1,17 @@
 <template>
 	<div class="message-list">
-		<div class="message">
-			<div class="avatar">
-				<img src="https://randomuser.me/api/portraits/men/85.jpg">
-			</div>
+		<template v-for="message in messages">
+			<div class="message">
+				<div class="avatar">
+					<img :src="message.avatar">
+				</div>
 
-			<div class="name">John Leider</div>
-			<div class="content">Pinging ya all!</div>
-			<div class="clearfix" />
-		</div>
-		<div class="clearfix" />
-		<div class="message">
-			<div class="avatar">
-				<img src="https://randomuser.me/api/portraits/men/85.jpg">
+				<div class="name">{{message.name}}</div>
+				<div class="content">{{message.content}}</div>
+				<div class="clearfix" />
 			</div>
-
-			<div class="name">John Leider</div>
-			<div class="content">Anyone here?</div>
 			<div class="clearfix" />
-		</div>
-		<div class="clearfix" />
-		<div class="message">
-			<div class="avatar">
-				<img src="https://randomuser.me/api/portraits/men/85.jpg">
-			</div>
-
-			<div class="name">John Leider</div>
-			<div class="content">Hello?!</div>
-			<div class="clearfix" />
-		</div>
-		<div class="clearfix" />
-		<div class="message">
-			<div class="avatar">
-				<img src="https://randomuser.me/api/portraits/men/84.jpg">
-			</div>
-
-			<div class="name">Git Center</div>
-			<div class="content">I'm here</div>
-			<div class="clearfix" />
-		</div>
-		<div class="clearfix" />
-		<div class="message">
-			<div class="avatar">
-				<img src="https://randomuser.me/api/portraits/men/85.jpg">
-			</div>
-
-			<div class="name">John Leider</div>
-			<div class="content">Hello @gitcenter!</div>
-			<div class="clearfix" />
-		</div>
-		<div class="clearfix" />
-		<div class="message">
-			<div class="avatar">
-				<img src="https://randomuser.me/api/portraits/men/86.jpg">
-			</div>
-
-			<div class="name">Krixano</div>
-			<div class="content">Welcome back, John Leider!</div>
-			<div class="clearfix" />
-		</div>
-		<div class="clearfix" />
-		<div class="message">
-			<div class="avatar">
-				<img src="https://randomuser.me/api/portraits/men/85.jpg">
-			</div>
-
-			<div class="name">John Leider</div>
-			<div class="content">Hi @Krixano!</div>
-			<div class="clearfix" />
-		</div>
-		<div class="clearfix" />
-		<div class="message">
-			<div class="avatar">
-				<img src="https://randomuser.me/api/portraits/men/85.jpg">
-			</div>
-
-			<div class="name">John Leider</div>
-			<div class="content">Pinging ya all!</div>
-			<div class="clearfix" />
-		</div>
-		<div class="clearfix" />
-		<div class="message">
-			<div class="avatar">
-				<img src="https://randomuser.me/api/portraits/men/85.jpg">
-			</div>
-
-			<div class="name">John Leider</div>
-			<div class="content">Anyone here?</div>
-			<div class="clearfix" />
-		</div>
-		<div class="clearfix" />
-		<div class="message">
-			<div class="avatar">
-				<img src="https://randomuser.me/api/portraits/men/85.jpg">
-			</div>
-
-			<div class="name">John Leider</div>
-			<div class="content">Hello?!</div>
-			<div class="clearfix" />
-		</div>
-		<div class="clearfix" />
-		<div class="message">
-			<div class="avatar">
-				<img src="https://randomuser.me/api/portraits/men/84.jpg">
-			</div>
-
-			<div class="name">Git Center</div>
-			<div class="content">I'm here</div>
-			<div class="clearfix" />
-		</div>
-		<div class="clearfix" />
-		<div class="message">
-			<div class="avatar">
-				<img src="https://randomuser.me/api/portraits/men/85.jpg">
-			</div>
-
-			<div class="name">John Leider</div>
-			<div class="content">Hello @gitcenter!</div>
-			<div class="clearfix" />
-		</div>
-		<div class="clearfix" />
-		<div class="message">
-			<div class="avatar">
-				<img src="https://randomuser.me/api/portraits/men/86.jpg">
-			</div>
-
-			<div class="name">Krixano</div>
-			<div class="content">Welcome back, John Leider!</div>
-			<div class="clearfix" />
-		</div>
-		<div class="clearfix" />
-		<div class="message">
-			<div class="avatar">
-				<img src="https://randomuser.me/api/portraits/men/85.jpg">
-			</div>
-
-			<div class="name">John Leider</div>
-			<div class="content">Hi @Krixano!</div>
-			<div class="clearfix" />
-		</div>
-		<div class="clearfix" />
-		<div class="message">
-			<div class="avatar">
-				<img src="https://randomuser.me/api/portraits/men/85.jpg">
-			</div>
-
-			<div class="name">John Leider</div>
-			<div class="content">Pinging ya all!</div>
-			<div class="clearfix" />
-		</div>
-		<div class="clearfix" />
-		<div class="message">
-			<div class="avatar">
-				<img src="https://randomuser.me/api/portraits/men/85.jpg">
-			</div>
-
-			<div class="name">John Leider</div>
-			<div class="content">Anyone here?</div>
-			<div class="clearfix" />
-		</div>
-		<div class="clearfix" />
-		<div class="message">
-			<div class="avatar">
-				<img src="https://randomuser.me/api/portraits/men/85.jpg">
-			</div>
-
-			<div class="name">John Leider</div>
-			<div class="content">Hello?!</div>
-			<div class="clearfix" />
-		</div>
-		<div class="clearfix" />
-		<div class="message">
-			<div class="avatar">
-				<img src="https://randomuser.me/api/portraits/men/84.jpg">
-			</div>
-
-			<div class="name">Git Center</div>
-			<div class="content">I'm here</div>
-			<div class="clearfix" />
-		</div>
-		<div class="clearfix" />
-		<div class="message">
-			<div class="avatar">
-				<img src="https://randomuser.me/api/portraits/men/85.jpg">
-			</div>
-
-			<div class="name">John Leider</div>
-			<div class="content">Hello @gitcenter!</div>
-			<div class="clearfix" />
-		</div>
-		<div class="clearfix" />
-		<div class="message">
-			<div class="avatar">
-				<img src="https://randomuser.me/api/portraits/men/86.jpg">
-			</div>
-
-			<div class="name">Krixano</div>
-			<div class="content">Welcome back, John Leider!</div>
-			<div class="clearfix" />
-		</div>
-		<div class="clearfix" />
-		<div class="message">
-			<div class="avatar">
-				<img src="https://randomuser.me/api/portraits/men/85.jpg">
-			</div>
-
-			<div class="name">John Leider</div>
-			<div class="content">Hi @Krixano!</div>
-			<div class="clearfix" />
-		</div>
-		<div class="clearfix" />
+		</template>
 	</div>
 
 	<!--
@@ -267,22 +69,111 @@
 		data() {
 			return {
 				messages: [
-					{ username: "Krixano", text: "Testing" },
-					{ username: "Git Center", text: "Blah Blah Blah" },
-					{ username: "Thunder", text: "test-in" },
-					{ username: "Thunder", text: "Lorem Ipsum Dolor Amet!" },
-					{ username: "Thunder", text: "Lorem Ipsum Dolor Amet!" },
-					{ username: "Git Center", text: "Lorem Ipsum Dolor Amet!" },
-					{ username: "Thunder", text: "Lorem Ipsum Dolor Amet!" },
-					{ username: "Glightstar", text: "Lorem Ipsum Dolor Amet!" },
-					{ username: "Krixano", text: "Lorem Ipsum Dolor Amet!" },
-					{ username: "Krixano", text: "Lorem Ipsum Dolor Amet!" },
-					{ username: "Thunder", text: "Lorem Ipsum Dolor Amet!" },
-					{ username: "Git Center", text: "Lorem Ipsum Dolor Amet!" },
-					{ username: "Thunder", text: "Lorem Ipsum Dolor Amet!" },
-					{ username: "Thunder", text: "Lorem Ipsum Dolor Amet!" },
-					{ username: "Thunder", text: "Lorem Ipsum Dolor Amet!" },
-					{ username: "Git Center", text: "Lorem Ipsum Dolor Amet!" },
+					{
+						avatar: "https://randomuser.me/api/portraits/men/85.jpg",
+						name: "John Leider",
+						content: "Pinging ya all!"
+					},
+					{
+						avatar: "https://randomuser.me/api/portraits/men/85.jpg",
+						name: "John Leider",
+						content: "Anyone here?"
+					},
+					{
+						avatar: "https://randomuser.me/api/portraits/men/85.jpg",
+						name: "John Leider",
+						content: "Hello?!"
+					},
+					{
+						avatar: "https://randomuser.me/api/portraits/men/84.jpg",
+						name: "Git Center",
+						content: "I'm here"
+					},
+					{
+						avatar: "https://randomuser.me/api/portraits/men/85.jpg",
+						name: "John Leider",
+						content: "Hello @gitcenter!"
+					},
+					{
+						avatar: "https://randomuser.me/api/portraits/men/86.jpg",
+						name: "Krixano",
+						content: "Welcome back, John Leider!"
+					},
+					{
+						avatar: "https://randomuser.me/api/portraits/men/85.jpg",
+						name: "John Leider",
+						content: "Hi @Krixano!"
+					},
+					{
+						avatar: "https://randomuser.me/api/portraits/men/85.jpg",
+						name: "John Leider",
+						content: "Pinging ya all!"
+					},
+					{
+						avatar: "https://randomuser.me/api/portraits/men/85.jpg",
+						name: "John Leider",
+						content: "Anyone here?"
+					},
+					{
+						avatar: "https://randomuser.me/api/portraits/men/85.jpg",
+						name: "John Leider",
+						content: "Hello?!"
+					},
+					{
+						avatar: "https://randomuser.me/api/portraits/men/84.jpg",
+						name: "Git Center",
+						content: "I'm here"
+					},
+					{
+						avatar: "https://randomuser.me/api/portraits/men/85.jpg",
+						name: "John Leider",
+						content: "Hello @gitcenter!"
+					},
+					{
+						avatar: "https://randomuser.me/api/portraits/men/86.jpg",
+						name: "Krixano",
+						content: "Welcome back, John Leider!"
+					},
+					{
+						avatar: "https://randomuser.me/api/portraits/men/85.jpg",
+						name: "John Leider",
+						content: "Hi @Krixano!"
+					},
+					{
+						avatar: "https://randomuser.me/api/portraits/men/85.jpg",
+						name: "John Leider",
+						content: "Pinging ya all!"
+					},
+					{
+						avatar: "https://randomuser.me/api/portraits/men/85.jpg",
+						name: "John Leider",
+						content: "Anyone here?"
+					},
+					{
+						avatar: "https://randomuser.me/api/portraits/men/85.jpg",
+						name: "John Leider",
+						content: "Hello?!"
+					},
+					{
+						avatar: "https://randomuser.me/api/portraits/men/84.jpg",
+						name: "Git Center",
+						content: "I'm here"
+					},
+					{
+						avatar: "https://randomuser.me/api/portraits/men/85.jpg",
+						name: "John Leider",
+						content: "Hello @gitcenter!"
+					},
+					{
+						avatar: "https://randomuser.me/api/portraits/men/86.jpg",
+						name: "Krixano",
+						content: "Welcome back, John Leider!"
+					},
+					{
+						avatar: "https://randomuser.me/api/portraits/men/85.jpg",
+						name: "John Leider",
+						content: "Hi @Krixano!"
+					}
 				]
 			};
 		}

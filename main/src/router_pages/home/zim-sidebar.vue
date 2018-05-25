@@ -22,11 +22,14 @@
 		</ul>
 
 		<!-- Channel list -->
-		<ul :class="['right', {collapsed: !collapsed}]">
+		<ul :class="['right', {dragging}]" :style="{width: width + 'px'}">
 			<li class="header">Channels</li>
 			<li class="divider" />
 
 			<li v-for="link in links">{{link}}</li>
+
+			<!-- Resize -->
+			<div class="resize" @mousedown.prevent.stop="mouseDown"></div>
 		</ul>
 	</div>
 </template>
@@ -50,6 +53,8 @@
 		float: left
 
 		transition: all 0.3s
+	ul.dragging
+		transition: none
 
 	// <li> is an item
 	li
@@ -135,6 +140,19 @@
 		background: none !important // sorry
 	.right.collapsed
 		width: 110px
+
+
+
+	.resize
+		display: block
+		width: 16px
+		height: 100%
+
+		position: absolute
+		right: -12px
+		top: 0
+
+		cursor: w-resize
 </style>
 
 <script type="text/javascript">
@@ -152,8 +170,38 @@
 				],
 				links: ["Lobby", "Group-Test", "Group-Num2", "jhkjhjuiyhuihuihygujhjhjk", "gfdgf gsfgs gsd fg fg sdfg sdfgsdg sgdf gsd sgdf gdf"],
 
-				collapsed: true
+				collapsed: true,
+
+				width: 230,
+				dragging: false,
+				mouseDownEvent: null,
+				widthBefore: null
 			};
+		},
+
+		methods: {
+			mouseDown(e) {
+				this.mouseDownEvent = e;
+				this.widthBefore = this.width;
+				this.dragging = true;
+				document.body.addEventListener("mousemove", this.mouseMove);
+				document.body.addEventListener("mouseup", this.mouseUp);
+			},
+			mouseMove(e) {
+				this.width = e.clientX - this.mouseDownEvent.clientX + this.widthBefore;
+				if(this.width < 110) {
+					this.width = 110;
+				} else if(this.width > 500) {
+					this.width = 500;
+				}
+			},
+			mouseUp(e) {
+				this.mouseDownEvent = null;
+				this.widthBefore = null;
+				this.dragging = false;
+				document.body.removeEventListener("mousemove", this.mouseMove);
+				document.body.removeEventListener("mouseup", this.mouseUp);
+			}
 		}
 	};
 </script>

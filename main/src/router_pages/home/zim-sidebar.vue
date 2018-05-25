@@ -116,6 +116,7 @@
 		width: 200px
 		background-color: $dark-color
 		color: $light-fg
+		overflow: hidden
 	.left li
 		width: 200px
 	.left li:hover

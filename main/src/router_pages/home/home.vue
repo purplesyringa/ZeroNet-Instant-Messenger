@@ -1,29 +1,51 @@
 <template>
-	<div style="width: 100%; height: 100%;">
+	<div class="container">
 		<!-- Main menu and channel list -->
 		<zim-sidebar />
 
+		<!-- Header & message list -->
+		<div class="middle">
+			<zim-header />
+			<div class="message-list">
+				<zim-message-list />
+			</div>
+		</div>
+
 		<!--
-		<v-toolbar app dense class="elevation-3">
-			<v-toolbar-side-icon />
-			<v-toolbar-title>ZeroNet Instant Messenger</v-toolbar-title>
-		</v-toolbar>
-
 		<v-navigation-drawer clipped dark app v-model="drawer2" right width="250" class="elevation-2" />
-
-		<zim-message-list />
 		-->
 	</div>
 </template>
 
+<style lang="sass">
+	.container
+		width: 100%
+		height: 100%
+
+		display: flex
+		flex-direction: row
+
+	.middle
+		flex: 1 0
+		overflow: hidden
+
+		display: flex
+		flex-direction: column
+
+	.message-list
+		flex: 1 0
+</style>
+
 <script type="text/javascript">
 	import ZiMSidebar from "./zim-sidebar.vue";
+	import ZiMHeader from "./zim-header.vue";
 	import ZiMMessageList from "./zim-message-list.vue";
 
 	export default {
 		name: "home",
 		components: {
 			"zim-sidebar": ZiMSidebar,
+			"zim-header": ZiMHeader,
 			"zim-message-list": ZiMMessageList,
 		}
 	};

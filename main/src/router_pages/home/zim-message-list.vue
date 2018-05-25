@@ -1,4 +1,5 @@
 <template>
+	<!--
 	<v-content style="padding-left: 0; padding-right: 0; padding-top: 0;" class="fill-height">
 		<v-card class="fill-height" style="height: 100%;" flat>
 			<div style="padding: 10px; padding-left: 15px; padding-right: 15px; overflow-y: scroll; height: 100%; width: 100%; position: absolute; padding-bottom: 50px;">
@@ -14,11 +15,11 @@
 					style="margin: 0; color: white;" color="white"
 				/>
 			</div>
-			<!--<v-bottom-nav absolute :value="true" :color="color" style="height: 50px; padding: 0;">
-				
-			</v-bottom-nav>-->
 		</v-card>
 	</v-content>
+	-->
+
+	<div>Messages</div>
 </template>
 
 <script type="text/javascript">

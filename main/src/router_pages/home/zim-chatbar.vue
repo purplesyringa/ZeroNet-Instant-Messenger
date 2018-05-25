@@ -8,7 +8,6 @@
 	.footer
 		width: 100%
 
-		box-shadow: 0 -4px 4px darken(#FFF, 5%)
 		border-top: 1px solid darken($light-color, 5%)
 
 	.input

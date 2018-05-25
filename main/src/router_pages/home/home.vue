@@ -12,9 +12,8 @@
 			<zim-chatbar />
 		</div>
 
-		<!--
-		<v-navigation-drawer clipped dark app v-model="drawer2" right width="250" class="elevation-2" />
-		-->
+		<!-- Online user list -->
+		<zim-online />
 	</div>
 </template>
 
@@ -43,6 +42,7 @@
 	import ZiMHeader from "./zim-header.vue";
 	import ZiMMessageList from "./zim-message-list.vue";
 	import ZiMChatbar from "./zim-chatbar.vue";
+	import ZiMOnline from "./zim-online.vue";
 
 	export default {
 		name: "home",
@@ -50,7 +50,8 @@
 			"zim-sidebar": ZiMSidebar,
 			"zim-header": ZiMHeader,
 			"zim-message-list": ZiMMessageList,
-			"zim-chatbar": ZiMChatbar
+			"zim-chatbar": ZiMChatbar,
+			"zim-online": ZiMOnline
 		}
 	};
 </script>

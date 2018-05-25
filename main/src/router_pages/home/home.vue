@@ -39,7 +39,7 @@
 </style>
 
 <script type="text/javascript">
-	import ZiMSidebar from "./zim-sidebar.vue";
+	import ZiMSidebar from "vue_components/zim-sidebar.vue";
 	import ZiMChannels from "./zim-channels.vue";
 	import ZiMHeader from "./zim-header.vue";
 	import ZiMMessageList from "./zim-message-list.vue";

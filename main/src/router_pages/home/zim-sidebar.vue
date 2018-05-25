@@ -35,8 +35,7 @@
 	.sidebar
 		display: block
 		float: left
-		width: 310px
-		flex: 0 0 310px
+		flex: 0 0 auto
 		height: 100%
 
 		box-shadow: 4px 0 4px darken($light-color, 5%)
@@ -46,8 +45,9 @@
 		height: 100%
 		margin: 0
 		padding: 0
+
+		position: relative
 		float: left
-		overflow: hidden
 
 		transition: all 0.3s
 
@@ -69,6 +69,7 @@
 	// Divider between <li>s
 	.divider
 		padding: 0
+		width: 100% !important // sorry
 		min-height: 1px
 		margin-bottom: -1px
 

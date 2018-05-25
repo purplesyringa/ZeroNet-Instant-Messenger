@@ -1,24 +1,14 @@
 <template>
 	<div class="sidebar">
-		<!-- Main menu -->
-		<ul :class="['left', {collapsed}]">
-			<li>
-				<div class="avatar">
-					<img src="https://randomuser.me/api/portraits/men/85.jpg">
-				</div>John Leider
-			</li>
-
+		<!-- Channel list -->
+		<ul :class="['right', {dragging}]" :style="{width: width + 'px'}">
+			<li class="header">Channels</li>
 			<li class="divider" />
 
-			<li v-for="item in items">
-				<icon class="icon" :name="item.icon" />{{item.title}}
-			</li>
+			<li v-for="link in links">{{link}}</li>
 
-			<li class="divider" />
-
-			<li @click="collapsed = !collapsed">
-				<icon :class="['icon', {rotated: collapsed}]" name="chevron-left" />Collapse
-			</li>
+			<!-- Resize -->
+			<div class="resize" @mousedown.prevent.stop="mouseDown"></div>
 		</ul>
 	</div>
 </template>

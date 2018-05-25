@@ -2,6 +2,7 @@
 	<div class="container">
 		<!-- Main menu and channel list -->
 		<zim-sidebar />
+		<zim-channels />
 
 		<!-- Header & message list -->
 		<div class="middle">
@@ -39,6 +40,7 @@
 
 <script type="text/javascript">
 	import ZiMSidebar from "./zim-sidebar.vue";
+	import ZiMChannels from "./zim-channels.vue";
 	import ZiMHeader from "./zim-header.vue";
 	import ZiMMessageList from "./zim-message-list.vue";
 	import ZiMChatbar from "./zim-chatbar.vue";
@@ -48,6 +50,7 @@
 		name: "home",
 		components: {
 			"zim-sidebar": ZiMSidebar,
+			"zim-channels": ZiMChannels,
 			"zim-header": ZiMHeader,
 			"zim-message-list": ZiMMessageList,
 			"zim-chatbar": ZiMChatbar,

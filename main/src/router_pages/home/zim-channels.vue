@@ -1,7 +1,7 @@
 <template>
 	<div class="sidebar">
 		<!-- Channel list -->
-		<ul :class="['right', {dragging}]" :style="{width: width + 'px'}">
+		<ul :class="{dragging}" :style="{width: width + 'px'}">
 			<li class="header">Channels</li>
 			<li class="divider" />
 
@@ -14,114 +14,19 @@
 </template>
 
 <style lang="sass" scoped>
-	.sidebar
-		display: block
-		float: left
-		flex: 0 0 auto
-		height: 100%
-
-		box-shadow: 4px 0 4px darken($light-color, 5%)
-
+	@import "./sidebar.sass"
 
 	ul
-		height: 100%
-		margin: 0
-		padding: 0
-
-		position: relative
-		float: left
-
-		transition: all 0.3s
-	ul.dragging
-		transition: none
-
-	// <li> is an item
-	li
-		display: block
-		margin: 0
-		padding: 12px 16px
-		min-height: 46px
-
-		line-height: 20px
-		white-space: nowrap
-		text-overflow: ellipsis
-		overflow: hidden
-
-		list-style-type: none
-		cursor: pointer
-
-	// Divider between <li>s
-	.divider
-		padding: 0
-		width: 100% !important // sorry
-		min-height: 1px
-		margin-bottom: -1px
-
-	// Big item, but w/o avatar
-	.header
-		padding: 26px 16px
-
-
-	// Avatar is big and circle
-	.avatar
-		display: inline-block
-		width: 48px
-		height: 48px
-		margin-right: 16px
-		vertical-align: middle
-
-		overflow: hidden
-		border-radius: 50%
-	.avatar img
-		width: 100%
-
-	// Icon is small
-	.icon
-		display: inline-block
-		width: 48px
-		height: 20px
-		margin-right: 16px
-		vertical-align: middle
-
-		text-align: center
-
-		transition: all 0.3s
-	.rotated
-		transform: rotate(180deg)
-
-
-	// Different styles
-	.left
-		width: 200px
-		background-color: $dark-color
-		color: $light-fg
-		overflow: hidden
-		z-index: 2
-	.left li
-		width: 200px
-	.left li:hover
-		background-color: lighten($dark-color, 5%)
-	.left .divider
-		background-color: lighten($dark-color, 5%)
-	.left .header
-		color: darken($light-fg, 50%)
-	.left.collapsed
-		width: 80px
-
-	.right
 		width: 230px
 		background-color: darken($light-color, 2%)
 		color: $dark-fg
-	.right li:hover
+	li:hover
 		background-color: darken($light-color, 5%)
-	.right .divider
+	.divider
 		background-color: darken($light-color, 5%)
-	.right .header
+	.header
 		color: lighten($dark-fg, 50%)
 		background: none !important // sorry
-	.right.collapsed
-		width: 110px
-
 
 
 	.resize
@@ -137,21 +42,11 @@
 </style>
 
 <script type="text/javascript">
-	import "vue-awesome/icons/comment";
-	import "vue-awesome/icons/cog";
-	import "vue-awesome/icons/chevron-left";
-
 	export default {
-		name: "zim-sidebar",
+		name: "zim-channels",
 		data() {
 			return {
-				items: [
-					{title: "Channels", icon: "comment"},
-					{title: "About", icon: "cog"},
-				],
 				links: ["Lobby", "Group-Test", "Group-Num2", "jhkjhjuiyhuihuihygujhjhjk", "gfdgf gsfgs gsd fg fg sdfg sdfgsdg sgdf gsd sgdf gdf"],
-
-				collapsed: true,
 
 				width: 230,
 				dragging: false,

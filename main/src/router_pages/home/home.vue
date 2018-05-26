@@ -16,7 +16,9 @@
 		</div>
 
 		<!-- Online user list -->
-		<zim-online />
+		<div :class="['online-root', {'online-enabled': onlineEnabled}]">
+			<zim-online />
+		</div>
 	</div>
 </template>
 
@@ -47,9 +49,27 @@
 		display: flex
 		flex-direction: column
 
+		@include apply-to(less-than, $phone)
+			min-width: 100%
+			width: 100%
+
 	.message-list
 		flex: 1
 		min-height: 0
+
+
+	@include apply-to(less-than, $phone)
+		.online-root
+			width: 100%
+			height: 100%
+
+			position: absolute
+			left: 100%
+
+			transition: all 0.3s
+
+		.online-enabled
+			left: 0
 </style>
 
 <script type="text/javascript">
@@ -64,17 +84,20 @@
 		name: "home",
 		data() {
 			return {
-				sidebarsDisabled: false
+				sidebarsDisabled: false,
+				onlineEnabled: false
 			};
 		},
 
 		mounted() {
 			this.$eventBus.$on("showChannel", this.onShowChannel);
 			this.$eventBus.$on("showUser", this.onShowUser);
+			this.$eventBus.$on("showOnline", this.onShowOnline);
 		},
 		destroyed() {
 			this.$eventBus.$off("showChannel", this.onShowChannel);
 			this.$eventBus.$off("showUser", this.onShowUser);
+			this.$eventBus.$off("showOnline", this.onShowOnline);
 		},
 
 		methods: {
@@ -83,6 +106,9 @@
 			},
 			onShowUser() {
 				this.sidebarsDisabled = true;
+			},
+			onShowOnline() {
+				this.onlineEnabled = true;
 			}
 		},
 

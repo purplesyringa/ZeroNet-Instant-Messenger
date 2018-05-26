@@ -17,6 +17,9 @@
 		background-color: darken($light-color, 2%)
 		border-left: 1px solid darken(#FFF, 5%)
 
+		@include apply-to(less-than, $phone)
+			width: 100%
+
 
 	.header
 		width: 100%

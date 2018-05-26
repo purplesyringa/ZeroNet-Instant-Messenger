@@ -22,7 +22,6 @@
  },
  "signs_required": 1,
  "title": "ZeroNet Instant Messenger",
- "p2p_filter": ".*",
- "translate": ["js/all.js"],
- "zeronet_version": "0.6.0"
+ "zeronet_version": "0.6.0",
+ "viewport": "width=device-width,initial-scale=1"
 }

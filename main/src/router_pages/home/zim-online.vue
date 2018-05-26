@@ -1,6 +1,8 @@
 <template>
 	<div class="online">
-		<div class="header">Online right now</div>
+		<div class="header">
+			<icon name="chevron-left" class="back" @click.native="back" />Online right now
+		</div>
 
 		<div class="user">@glightstar</div>
 		<div class="user">@gitcenter</div>
@@ -28,13 +30,31 @@
 		box-shadow: 0 4px 4px darken(#FFF, 5%)
 		border-bottom: 1px solid darken($light-color, 5%)
 
+	.back
+		display: none
+		width: 20px
+		height: 20px
+
+		margin-right: 16px
+
+		@include apply-to(less-than, $phone)
+			display: inline-block
+
 
 	.user
 		margin: 12px 16px
 </style>
 
 <script type="text/javascript">
+	import "vue-awesome/icons/chevron-left";
+
 	export default {
-		name: "zim-online"
+		name: "zim-online",
+
+		methods: {
+			back() {
+				this.$eventBus.$emit("hideOnline");
+			}
+		}
 	};
 </script>

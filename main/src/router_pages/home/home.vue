@@ -93,11 +93,13 @@
 			this.$eventBus.$on("showChannel", this.onShowChannel);
 			this.$eventBus.$on("showUser", this.onShowUser);
 			this.$eventBus.$on("showOnline", this.onShowOnline);
+			this.$eventBus.$on("hideOnline", this.onHideOnline);
 		},
 		destroyed() {
 			this.$eventBus.$off("showChannel", this.onShowChannel);
 			this.$eventBus.$off("showUser", this.onShowUser);
 			this.$eventBus.$off("showOnline", this.onShowOnline);
+			this.$eventBus.$off("hideOnline", this.onHideOnline);
 		},
 
 		methods: {
@@ -109,6 +111,9 @@
 			},
 			onShowOnline() {
 				this.onlineEnabled = true;
+			},
+			onHideOnline() {
+				this.onlineEnabled = false;
 			}
 		},
 

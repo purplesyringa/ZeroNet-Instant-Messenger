@@ -14,6 +14,10 @@ import "material-icons/iconfont/material-icons.css";
 import Icon from "vue-awesome/components/Icon.vue";
 Vue.component("icon", Icon);
 
+// Dummy node
+import Dummy from "vue_components/dummy.vue";
+Vue.component("dummy", Dummy);
+
 Vue.prototype.$eventBus = new Vue();
 
 import root from "./vue_components/root.vue";
@@ -21,7 +25,8 @@ var app = new Vue({
 	el: "#app",
 	render: h => h(root),
 	data: {
-		currentView: null,
+		mainView: null,
+		pagesView: null,
 		zeroPage: null
 	}
 });

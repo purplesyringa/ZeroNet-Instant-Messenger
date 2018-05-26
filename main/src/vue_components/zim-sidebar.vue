@@ -10,7 +10,7 @@
 
 			<li class="divider" />
 
-			<li v-for="item in items">
+			<li v-for="item in items" @click="handle(item)">
 				<icon class="icon" :name="item.icon" />{{item.title}}
 			</li>
 
@@ -60,11 +60,30 @@
 		data() {
 			return {
 				items: [
-					{title: "Channels", icon: "comment-alt"},
-					{title: "About", icon: "info-circle"},
+					{
+						title: "Channels",
+						icon: "comment-alt",
+						handler() {
+							this.$router.navigate("channels");
+						}
+					},
+					{
+						title: "About",
+						icon: "info-circle",
+						handler() {
+							this.$router.navigate("about");
+						}
+					},
 				],
 				collapsed: true
 			};
+		},
+
+		methods: {
+			handle(item) {
+				this.collapsed = true;
+				item.handler.call(this);
+			}
 		}
 	};
 </script>

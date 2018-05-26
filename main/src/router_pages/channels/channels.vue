@@ -1,11 +1,5 @@
 <template>
-	<div class="container">
-		<!-- Main menu and channel list -->
-		<div :class="['sidebars', {'sidebars-disabled': sidebarsDisabled}]">
-			<zim-sidebar />
-			<zim-channels />
-		</div>
-
+	<dummy>
 		<!-- Header & message list -->
 		<div class="middle">
 			<zim-header />
@@ -19,29 +13,10 @@
 		<div :class="['online-root', {'online-enabled': onlineEnabled}]">
 			<zim-online />
 		</div>
-	</div>
+	</dummy>
 </template>
 
 <style lang="sass" scoped>
-	.container
-		width: 100%
-		height: 100%
-
-		display: flex
-		flex-direction: row
-
-	.sidebars
-		display: flex
-		flex-direction: row
-
-		@include apply-to(less-than, $phone)
-			flex: 0 0 100%
-			width: 100%
-			transition: all 0.3s
-
-			&.sidebars-disabled
-				margin-left: -100%
-
 	.middle
 		flex: 1 0
 		overflow: hidden
@@ -73,7 +48,7 @@
 </style>
 
 <script type="text/javascript">
-	import ZiMSidebar from "vue_components/zim-sidebar.vue";
+	import RouterPage from "vue_components/router-page.vue";
 	import ZiMChannels from "./zim-channels.vue";
 	import ZiMHeader from "./zim-header.vue";
 	import ZiMMessageList from "./zim-message-list.vue";
@@ -84,7 +59,6 @@
 		name: "home",
 		data() {
 			return {
-				sidebarsDisabled: false,
 				onlineEnabled: false
 			};
 		},
@@ -106,13 +80,13 @@
 
 		methods: {
 			onShowChannel() {
-				this.sidebarsDisabled = true;
+				this.$eventBus.$emit("hideMainView");
 			},
 			onShowUser() {
-				this.sidebarsDisabled = true;
+				this.$eventBus.$emit("hideMainView");
 			},
 			onShowChannels() {
-				this.sidebarsDisabled = false;
+				this.$eventBus.$emit("showMainView");
 			},
 			onShowOnline() {
 				this.onlineEnabled = true;
@@ -123,7 +97,7 @@
 		},
 
 		components: {
-			"zim-sidebar": ZiMSidebar,
+			"router-page": RouterPage,
 			"zim-channels": ZiMChannels,
 			"zim-header": ZiMHeader,
 			"zim-message-list": ZiMMessageList,

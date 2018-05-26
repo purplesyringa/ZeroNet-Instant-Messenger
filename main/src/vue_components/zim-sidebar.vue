@@ -51,8 +51,8 @@
 </style>
 
 <script type="text/javascript">
-	import "vue-awesome/icons/comment";
-	import "vue-awesome/icons/cog";
+	import "vue-awesome/icons/comment-alt";
+	import "vue-awesome/icons/info-circle";
 	import "vue-awesome/icons/chevron-left";
 
 	export default {
@@ -60,8 +60,8 @@
 		data() {
 			return {
 				items: [
-					{title: "Channels", icon: "comment"},
-					{title: "About", icon: "cog"},
+					{title: "Channels", icon: "comment-alt"},
+					{title: "About", icon: "info-circle"},
 				],
 				collapsed: true
 			};

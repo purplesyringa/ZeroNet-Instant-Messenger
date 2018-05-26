@@ -40,6 +40,7 @@
 		width: 230px
 		background-color: darken($light-color, 2%)
 		color: $dark-fg
+
 	li:hover
 		background-color: darken($light-color, 5%)
 	.divider
@@ -103,6 +104,15 @@
 		top: 0
 
 		cursor: w-resize
+
+
+
+	@include apply-to(less-than, $phone)
+		.sidebar
+			flex: 1 1 0
+			min-width: 0
+		ul
+			width: 100% !important // sorry
 </style>
 
 <script type="text/javascript">

@@ -42,6 +42,12 @@
 		color: darken($light-fg, 50%)
 	.collapsed
 		width: 80px
+
+
+
+	@include apply-to(less-than, $phone)
+		ul, li
+			width: 100vw
 </style>
 
 <script type="text/javascript">

@@ -92,12 +92,14 @@
 		mounted() {
 			this.$eventBus.$on("showChannel", this.onShowChannel);
 			this.$eventBus.$on("showUser", this.onShowUser);
+			this.$eventBus.$on("showChannels", this.onShowChannels);
 			this.$eventBus.$on("showOnline", this.onShowOnline);
 			this.$eventBus.$on("hideOnline", this.onHideOnline);
 		},
 		destroyed() {
 			this.$eventBus.$off("showChannel", this.onShowChannel);
 			this.$eventBus.$off("showUser", this.onShowUser);
+			this.$eventBus.$off("showChannels", this.onShowChannels);
 			this.$eventBus.$off("showOnline", this.onShowOnline);
 			this.$eventBus.$off("hideOnline", this.onHideOnline);
 		},
@@ -108,6 +110,9 @@
 			},
 			onShowUser() {
 				this.sidebarsDisabled = true;
+			},
+			onShowChannels() {
+				this.sidebarsDisabled = false;
 			},
 			onShowOnline() {
 				this.onlineEnabled = true;

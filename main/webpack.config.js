@@ -20,6 +20,22 @@ function genSass(indentedSyntax) {
 	];
 }
 
+const BABEL = {
+	loader: "babel-loader",
+	options: {
+		presets: ["env"],
+		plugins: [
+			[
+				"babel-plugin-transform-builtin-extend", {
+					globals: ["Error", "Array"]
+				}
+			],
+			"transform-class-properties"
+		]
+	}
+};
+
+
 module.exports = {
 	context: path.resolve(__dirname, "./src"),
 	resolve: {
@@ -41,7 +57,8 @@ module.exports = {
 				options: {
 					loaders: {
 						scss: genSass(false),
-						sass: genSass(true)
+						sass: genSass(true),
+						js: BABEL
 					}
 				}
 			},
@@ -60,20 +77,7 @@ module.exports = {
 			{
 				test: /\.js$/,
 				use: [
-					{
-						loader: "babel-loader",
-						options: {
-							presets: ["env"],
-							plugins: [
-								[
-									"babel-plugin-transform-builtin-extend", {
-										globals: ["Error", "Array"]
-									}
-								],
-								"transform-class-properties"
-							]
-						}
-					},
+					BABEL,
 					{
 						loader: "eslint-loader"
 					}
@@ -82,18 +86,11 @@ module.exports = {
 			},
 			{
 				test: /\.js$/,
-				use: [
-					{
-						loader: "babel-loader",
-						options: {
-							presets: ["env", "flow"],
-							plugins: [
-								"transform-class-properties"
-							]
-						}
-					}
-				],
-				include: /node_modules.*katex/
+				use: BABEL,
+				include: [
+					path.resolve(__dirname, "../node_modules/zero-dev-lib"),
+					path.resolve(__dirname, "../node_modules/vue-awesome")
+				]
 			},
 			{
 				test: /\.(gif|jpe?g|png)$/,

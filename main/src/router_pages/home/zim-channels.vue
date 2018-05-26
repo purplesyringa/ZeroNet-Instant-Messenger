@@ -111,6 +111,7 @@
 		.sidebar
 			flex: 1 1 0
 			min-width: 0
+			box-shadow: none
 		ul
 			width: 100% !important // sorry
 </style>

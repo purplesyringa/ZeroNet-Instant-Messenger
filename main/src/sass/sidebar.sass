@@ -1,0 +1,82 @@
+.sidebar
+	display: block
+	float: left
+	flex: 0 0 auto
+	height: 100%
+
+	box-shadow: 4px 0 4px darken($light-color, 5%)
+
+
+ul
+	display: flex
+	flex-direction: column
+
+	height: 100%
+	margin: 0
+	padding: 0
+
+	position: relative
+	float: left
+
+	transition: all 0.3s
+ul.dragging
+	transition: none
+
+// <li> is an item
+li
+	display: block
+	margin: 0
+	padding: 12px 16px
+	min-height: 46px
+
+	line-height: 20px
+	white-space: nowrap
+	text-overflow: ellipsis
+	overflow: hidden
+
+	list-style-type: none
+	cursor: pointer
+
+// Divider between <li>s
+.divider
+	padding: 0
+	width: 100% !important // sorry
+	min-height: 1px
+	margin-bottom: -1px
+.divider-big
+	margin: 8px 0
+
+// Big item, but w/o avatar
+.header
+	padding: 26px 16px
+	height: 72px
+	flex: 0 0 72px
+	max-height: 72px
+
+
+// Avatar is big and circle
+.avatar
+	display: inline-block
+	width: 48px
+	height: 48px
+	margin-right: 16px
+	vertical-align: middle
+
+	overflow: hidden
+	border-radius: 50%
+.avatar img
+	width: 100%
+
+// Icon is small
+.icon
+	display: inline-block
+	width: 48px
+	height: 20px
+	margin-right: 16px
+	vertical-align: middle
+
+	text-align: center
+
+	transition: all 0.3s
+.rotated
+	transform: rotate(180deg)

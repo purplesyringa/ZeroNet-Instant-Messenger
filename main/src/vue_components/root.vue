@@ -1,11 +1,7 @@
 <template>
-	<v-app>
-		<v-content>
-			<div class="current-view" style="width: 100%; height: 100%;">
-				<component :is="$parent.currentView" ref="currentView"></component>
-			</div>
-		</v-content>
-	</v-app>
+	<div class="current-view" style="width: 100%; height: 100%;">
+		<component :is="$parent.currentView" ref="currentView"></component>
+	</div>
 </template>
 
 <script language="text/javascript">

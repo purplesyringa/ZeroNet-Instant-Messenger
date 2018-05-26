@@ -4,6 +4,38 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
+function genSass(indentedSyntax) {
+	return [
+		"style-loader",
+		"css-loader",
+		"sass-loader" + (indentedSyntax ? "?indentedSyntax" : ""),
+		{
+			loader: "sass-resources-loader",
+			options: {
+				resources: [
+					path.resolve(__dirname, "./src/sass/global.sass")
+				]
+			}
+		}
+	];
+}
+
+const BABEL = {
+	loader: "babel-loader",
+	options: {
+		presets: ["env"],
+		plugins: [
+			[
+				"babel-plugin-transform-builtin-extend", {
+					globals: ["Error", "Array"]
+				}
+			],
+			"transform-class-properties"
+		]
+	}
+};
+
+
 module.exports = {
 	context: path.resolve(__dirname, "./src"),
 	resolve: {
@@ -24,8 +56,9 @@ module.exports = {
 				loader: "vue-loader",
 				options: {
 					loaders: {
-						scss: "vue-style-loader!css-loader!sass-loader",
-						sass: "vue-style-loader!css-loader!sass-loader?indentedSyntax",
+						scss: genSass(false),
+						sass: genSass(true),
+						js: BABEL
 					}
 				}
 			},
@@ -34,26 +67,17 @@ module.exports = {
 				loader: "style-loader!css-loader"
 			},
 			{
-				test: /\.s[ac]ss$/,
-				loader: "style-loader!css-loader!sass-loader?indentedSyntax"
+				test: /\.scss$/,
+				loader: genSass(false)
+			},
+			{
+				test: /\.sass$/,
+				loader: genSass(true)
 			},
 			{
 				test: /\.js$/,
 				use: [
-					{
-						loader: "babel-loader",
-						options: {
-							presets: ["env"],
-							plugins: [
-								[
-									"babel-plugin-transform-builtin-extend", {
-										globals: ["Error", "Array"]
-									}
-								],
-								"transform-class-properties"
-							]
-						}
-					},
+					BABEL,
 					{
 						loader: "eslint-loader"
 					}
@@ -62,18 +86,11 @@ module.exports = {
 			},
 			{
 				test: /\.js$/,
-				use: [
-					{
-						loader: "babel-loader",
-						options: {
-							presets: ["env", "flow"],
-							plugins: [
-								"transform-class-properties"
-							]
-						}
-					}
-				],
-				include: /node_modules.*katex/
+				use: BABEL,
+				include: [
+					path.resolve(__dirname, "../node_modules/zero-dev-lib"),
+					path.resolve(__dirname, "../node_modules/vue-awesome")
+				]
 			},
 			{
 				test: /\.(gif|jpe?g|png)$/,

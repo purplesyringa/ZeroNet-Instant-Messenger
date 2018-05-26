@@ -22,6 +22,9 @@
 		height: 100%
 		padding: 28px 16px
 
+		position: relative
+
+
 	.header
 		padding-right: 80px // 0 button
 
@@ -30,7 +33,11 @@
 
 	.footer
 		position: absolute
-		bottom: 28px
+		left: 0
+		bottom: 0
+
+		width: 100%
+		padding: 28px 16px
 </style>
 
 <script type="text/javascript">

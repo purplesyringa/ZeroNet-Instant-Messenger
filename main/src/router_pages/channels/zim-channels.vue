@@ -160,7 +160,7 @@
 				mouseDownEvent: null,
 				widthBefore: null,
 
-				current: ""
+				current: "#lobby"
 			};
 		},
 

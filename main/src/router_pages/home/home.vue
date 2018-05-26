@@ -1,7 +1,7 @@
 <template>
 	<div class="container">
 		<!-- Main menu and channel list -->
-		<div class="sidebars">
+		<div :class="['sidebars', {'sidebars-disabled': sidebarsDisabled}]">
 			<zim-sidebar />
 			<zim-channels />
 		</div>
@@ -35,6 +35,10 @@
 		@include apply-to(less-than, $phone)
 			flex: 0 0 100%
 			width: 100%
+			transition: all 0.3s
+
+			&.sidebars-disabled
+				margin-left: -100%
 
 	.middle
 		flex: 1 0
@@ -58,6 +62,30 @@
 
 	export default {
 		name: "home",
+		data() {
+			return {
+				sidebarsDisabled: false
+			};
+		},
+
+		mounted() {
+			this.$eventBus.$on("showChannel", this.onShowChannel);
+			this.$eventBus.$on("showUser", this.onShowUser);
+		},
+		destroyed() {
+			this.$eventBus.$off("showChannel", this.onShowChannel);
+			this.$eventBus.$off("showUser", this.onShowUser);
+		},
+
+		methods: {
+			onShowChannel() {
+				this.sidebarsDisabled = true;
+			},
+			onShowUser() {
+				this.sidebarsDisabled = true;
+			}
+		},
+
 		components: {
 			"zim-sidebar": ZiMSidebar,
 			"zim-channels": ZiMChannels,

@@ -1,10 +1,12 @@
 import {zeroFS, zeroAuth, zeroPage} from "route.js";
+import ScheduledStorage from "./scheduled-storage";
 
 export default class User {
 	constructor(address) {
 		this.address = address;
 		this.cachedAddress = null;
 		this.cachedConfig = null;
+		this.publicStorage = null;
 	}
 	async getAddress() {
 		if(this.address !== "self") {
@@ -29,15 +31,26 @@ export default class User {
 	}
 
 	async readPublicStorage(name) {
-		let address = await this.getAddress();
-		let json = await zeroFS.readFile(`data/users/${address}/public/${name}.json`);
-		return JSON.parse(json);
+		if(!this.publicStorage) {
+			let address = await this.getAddress();
+			this.publicStorage = new ScheduledStorage(
+				`data/users/${address}/public`,
+				`data/users/${address}/content.json`
+			);
+		}
+
+		return await this.publicStorage.read(name);
 	}
 	async writePublicStorage(name, value) {
-		let address = await this.getAddress();
-		let json = JSON.stringify(value);
-		await zeroFS.writeFile(`data/users/${address}/public/${name}.json`, json);
-		await zeroPage.publish(`data/users/${address}/content.json`);
+		if(!this.publicStorage) {
+			let address = await this.getAddress();
+			this.publicStorage = new ScheduledStorage(
+				`data/users/${address}/public`,
+				`data/users/${address}/content.json`
+			);
+		}
+
+		return await this.publicStorage.write(name, value);
 	}
 
 

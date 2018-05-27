@@ -221,6 +221,7 @@
 				this.channels.push({
 					name
 				});
+				this.current = `#${name}`;
 			}
 		}
 	};

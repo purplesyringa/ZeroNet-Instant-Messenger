@@ -1,6 +1,8 @@
 import {zeroPage} from "route.js";
 import EventEmitter from "wolfy87-eventemitter";
+import Singleton from "singleton-js";
 
+@Singleton
 export default class P2PMessenger extends EventEmitter {
 	constructor() {
 		super();

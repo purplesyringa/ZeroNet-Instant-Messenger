@@ -68,7 +68,6 @@
 				if(await UserManager.isRegisteredSelf()) {
 					Vue.prototype.$user = UserManager.getSelf();
 					this.user = Vue.prototype.$user;
-					console.log("SET");
 				} else {
 					this.registerPage = true;
 				}

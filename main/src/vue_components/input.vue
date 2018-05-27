@@ -62,6 +62,7 @@
 		top: 20px
 
 		color: #888
+		pointer-events: none
 		transition: all 0.3s
 
 	.input:focus ~ .placeholder, .input:valid ~ .placeholder

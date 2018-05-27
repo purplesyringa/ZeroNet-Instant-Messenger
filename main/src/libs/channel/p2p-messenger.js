@@ -6,6 +6,8 @@ export default class P2PMessenger extends EventEmitter {
 		super();
 
 		zeroPage.on("peerReceive", ({params}) => {
+			zeroPage.cmd("peerValid", [params.hash]);
+
 			if(params.broadcast) {
 				this.emit("recvBroadcast", params);
 			} else {

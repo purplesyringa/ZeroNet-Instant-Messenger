@@ -18,6 +18,10 @@ Vue.component("icon", Icon);
 import Dummy from "vue_components/dummy.vue";
 Vue.component("dummy", Dummy);
 
+// Input
+import Input from "vue_components/input.vue";
+Vue.component("zim-input", Input);
+
 Vue.prototype.$eventBus = new Vue();
 
 import root from "./vue_components/root.vue";

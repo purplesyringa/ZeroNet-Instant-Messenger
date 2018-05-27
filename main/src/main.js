@@ -26,7 +26,11 @@ Vue.component("zim-input", Input);
 import Button from "vue_components/button.vue";
 Vue.component("zim-button", Button);
 
-// Input
+// Checkbox
+import Checkbox from "vue_components/checkbox.vue";
+Vue.component("zim-checkbox", Checkbox);
+
+// Popup
 import Popup from "vue_components/popup.vue";
 Vue.component("zim-popup", Popup);
 

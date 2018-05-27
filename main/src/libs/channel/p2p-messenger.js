@@ -1,8 +1,10 @@
 import {zeroPage} from "route.js";
-import EventEmitter from "es-event-emitter";
+import EventEmitter from "wolfy87-eventemitter";
 
 export default class P2PMessenger extends EventEmitter {
 	constructor() {
+		super();
+
 		zeroPage.on("peerReceive", ({params}) => {
 			if(params.broadcast) {
 				this.emit("recvBroadcast", params);
@@ -26,4 +28,4 @@ export default class P2PMessenger extends EventEmitter {
 			message
 		});
 	}
-};
+}

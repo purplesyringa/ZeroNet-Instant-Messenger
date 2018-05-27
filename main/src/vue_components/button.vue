@@ -21,6 +21,10 @@
 
 		transition: all 0.3s
 
+		@include apply-to(less-than, $phone)
+			width: 100%
+
+
 	.button:hover
 		background-color: darken($color, 5%)
 </style>

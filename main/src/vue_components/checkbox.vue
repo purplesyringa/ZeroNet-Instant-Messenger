@@ -1,6 +1,6 @@
 <template>
 	<div class="root">
-		<input type="checkbox" :id="id">
+		<input type="checkbox" :id="id" v-model="value" @change="$emit('input', $event.target.checked)">
 
 		<label :for="id" class="checkbox">
 			<icon name="check" class="icon" />
@@ -67,7 +67,7 @@
 
 	export default {
 		name: "zim-checkbox",
-		props: ["name"],
+		props: ["name", "value"],
 		data() {
 			return {
 				id: ""

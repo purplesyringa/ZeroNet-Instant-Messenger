@@ -1,5 +1,6 @@
 import Channels from "./channels/channels.vue";
 import ZiMChannels from "./channels/zim-channels.vue";
+import Account from "./account/account.vue";
 import About from "./about/about.vue";
 
 export default vue => [
@@ -15,6 +16,13 @@ export default vue => [
 		controller: () => {
 			vue.mainView = ZiMChannels;
 			vue.pagesView = Channels;
+		}
+	},
+	{
+		path: "account",
+		controller: () => {
+			vue.mainView = Account;
+			vue.pagesView = null;
 		}
 	},
 	{

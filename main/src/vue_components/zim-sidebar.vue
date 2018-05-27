@@ -52,6 +52,7 @@
 
 <script type="text/javascript">
 	import "vue-awesome/icons/comment-alt";
+	import "vue-awesome/icons/user";
 	import "vue-awesome/icons/info-circle";
 	import "vue-awesome/icons/chevron-left";
 
@@ -68,12 +69,19 @@
 						}
 					},
 					{
+						title: "My account",
+						icon: "user",
+						handler() {
+							this.$router.navigate("account");
+						}
+					},
+					{
 						title: "About",
 						icon: "info-circle",
 						handler() {
 							this.$router.navigate("about");
 						}
-					},
+					}
 				],
 				collapsed: true
 			};

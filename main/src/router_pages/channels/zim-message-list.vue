@@ -44,6 +44,7 @@
 </style>
 
 <script type="text/javascript">
+	import UserManager from "libs/user/manager";
 	import ChannelManager from "libs/channel/manager";
 
 	export default {
@@ -80,10 +81,12 @@
 				this.current.on("message", this.onMessage);
 			},
 
-			onMessage(message) {
+			async onMessage(message) {
+				let user = UserManager.getByAddress(message.authId);
+
 				this.messages.push({
 					avatar: "https://randomuser.me/api/portraits/men/85.jpg",
-					name: message.userName,
+					name: await user.getNickname(),
 					content: message.content
 				});
 			},

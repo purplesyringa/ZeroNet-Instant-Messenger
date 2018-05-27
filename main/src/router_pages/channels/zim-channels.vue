@@ -75,23 +75,24 @@
 		margin: 8px auto
 
 
-	.active
-		background-color: $dark-color
-		transition: all 0.1s
-		&:hover
+	@include apply-to(greater-than, $phone)
+		.active
 			background-color: $dark-color
+			transition: all 0.1s
+			&:hover
+				background-color: $dark-color
 
-		.name
-			color: $light-fg
-			transition: all 0.1s
-		.user-info
-			color: darken($light-fg, 40%)
-			transition: all 0.1s
+			.name
+				color: $light-fg
+				transition: all 0.1s
+			.user-info
+				color: darken($light-fg, 40%)
+				transition: all 0.1s
 
-		.avatar-hashtag
-			background-color: $light-color
-			color: $dark-fg
-			transition: all 0.1s
+			.avatar-hashtag
+				background-color: $light-color
+				color: $dark-fg
+				transition: all 0.1s
 
 
 	.resize
@@ -165,9 +166,11 @@
 		},
 
 		mounted() {
-			this.$nextTick(() => {
-				this.$eventBus.$emit("showChannel", "lobby");
-			});
+			if(innerWidth > 420) {
+				this.$nextTick(() => {
+					this.$eventBus.$emit("showChannel", "lobby");
+				});
+			}
 		},
 
 		methods: {

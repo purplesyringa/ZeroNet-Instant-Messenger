@@ -12,6 +12,9 @@
 		width: 300px
 		height: 52px
 
+		@include apply-to(less-than, $phone)
+			width: 100%
+
 
 	.input
 		display: block

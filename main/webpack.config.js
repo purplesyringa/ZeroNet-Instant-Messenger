@@ -23,8 +23,10 @@ function genSass(indentedSyntax) {
 const BABEL = {
 	loader: "babel-loader",
 	options: {
-		presets: ["env"],
+		presets: ["env", "stage-0"],
 		plugins: [
+			"syntax-decorators",
+			"transform-decorators-legacy",
 			[
 				"babel-plugin-transform-builtin-extend", {
 					globals: ["Error", "Array"]

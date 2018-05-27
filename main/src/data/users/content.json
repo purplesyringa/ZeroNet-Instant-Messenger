@@ -9,7 +9,7 @@
 		},
 		"permission_rules": {
 			".*": {
-				"files_allowed": "data.json|config.json",
+				"files_allowed": "data.json|config.json|public/.*",
 				"max_size": 50000
 			}
 		},

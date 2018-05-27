@@ -23,6 +23,7 @@
 	.container
 		width: 100%
 		height: 100%
+		padding: 0 16px
 		background-color: #FFF
 
 		display: flex
@@ -41,11 +42,13 @@
 		line-height: 72px
 		letter-spacing: 2px
 		word-spacing: 16px
+		text-align: center
 		color: #222
 
 	.text
 		font-size: 32px
 		line-height: 48px
+		text-align: center
 		color: #222
 </style>
 

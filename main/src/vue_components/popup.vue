@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div :class="['bg', {visible}]" @click="close"></div>
-		<div :class="['alert', {visible}]">
+		<div :class="['alert', {visible}]" @keypress.enter="click">
 			<div class="title">{{title}}</div>
 			<slot />
 			<div class="button" @click="click">{{button.toUpperCase()}}</div>

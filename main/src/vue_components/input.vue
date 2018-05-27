@@ -13,6 +13,8 @@
 		height: 52px
 		margin-bottom: 16px
 
+		background: transparent
+
 		@include apply-to(less-than, $phone)
 			width: 100%
 
@@ -26,7 +28,7 @@
 		left: 0
 		top: 8px
 
-		background: none
+		background: transparent
 		border: none
 		border-bottom: 1px solid #888
 		outline: none

@@ -51,6 +51,7 @@
 
 		font-size: 20px
 		line-height: 24px
+		white-space: nowrap
 
 	.button
 		float: right

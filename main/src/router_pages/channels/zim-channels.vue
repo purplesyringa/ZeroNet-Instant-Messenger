@@ -9,14 +9,19 @@
 			<li class="divider" />
 
 			<div class="scrollable">
+				<!-- Channels -->
 				<li v-for="channel in channels" @click="showChannel(channel.name)" :class="{active: current === '#' + channel.name}">
 					<div :class="['name', {'name-only': !channel.description}]">#{{channel.name}}</div>
 					<div class="user-info">{{channel.description}}</div>
 					<div class="clearfix" />
 				</li>
 
+				<!-- Join channel -->
+				<li @click="joinChannel">+ Join/create channel</li>
+
 				<li class="divider divider-big" />
 
+				<!-- Users -->
 				<li v-for="user in users" @click="showUser(user.address)" :class="{active: current === '@' + user.address}">
 					<div class="avatar">
 						<img src="https://randomuser.me/api/portraits/men/83.jpg">
@@ -30,6 +35,10 @@
 				<div class="resize" @mousedown.prevent.stop="mouseDown"></div>
 			</div>
 		</ul>
+
+		<zim-popup :visible.sync="joinPopupShown" title="Join/create channel" button="Join" @click="joinChannelDone">
+			<zim-input placeholder="Channel name" v-model="joinPopupName" />
+		</zim-popup>
 	</div>
 </template>
 
@@ -118,6 +127,7 @@
 </style>
 
 <script type="text/javascript">
+	import ChannelManager from "libs/channel/manager";
 	import "vue-awesome/icons/hashtag";
 	import "vue-awesome/icons/circle";
 
@@ -129,18 +139,6 @@
 					{
 						name: "lobby",
 						description: "Main channel"
-					},
-					{
-						name: "Group-Test"
-					},
-					{
-						name: "Group-Num2"
-					},
-					{
-						name: "jhkjhjuiyhuihuihygujhjhjk"
-					},
-					{
-						name: "gfdgf gsfgs gsd fg fg sdfg sdfgsdg sgdf gsd sgdf gdf"
 					}
 				],
 				users: [
@@ -161,7 +159,10 @@
 				mouseDownEvent: null,
 				widthBefore: null,
 
-				current: "#lobby"
+				current: "#lobby",
+
+				joinPopupShown: false,
+				joinPopupName: ""
 			};
 		},
 
@@ -204,6 +205,22 @@
 			showUser(address) {
 				this.$eventBus.$emit("showUser", address);
 				this.current = "@" + address;
+			},
+
+			joinChannel() {
+				this.joinPopupName = "";
+				this.joinPopupShown = true;
+			},
+			joinChannelDone() {
+				let name = this.joinPopupName;
+				if(name[0] === "#") {
+					// Channel names don't begin with #, however, user may add it
+					name = name.substr(1);
+				}
+
+				this.channels.push({
+					name
+				});
 			}
 		}
 	};

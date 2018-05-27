@@ -26,6 +26,10 @@ Vue.component("zim-input", Input);
 import Button from "vue_components/button.vue";
 Vue.component("zim-button", Button);
 
+// Input
+import Popup from "vue_components/popup.vue";
+Vue.component("zim-popup", Popup);
+
 Vue.prototype.$eventBus = new Vue();
 
 import root from "./vue_components/root.vue";

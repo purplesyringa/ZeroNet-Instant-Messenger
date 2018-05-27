@@ -48,10 +48,6 @@ export default class User {
 		return await this.getConfigOption("nickname");
 	}
 	async setNickname(nickname) {
-		this.cachedNickname = nickname;
-
-		let config = await this.readConfigFile();
-		config.nickname = nickname;
-		await this.writeConfigFile(config);
+		return await this.setConfigOption("nickname", nickname);
 	}
 }

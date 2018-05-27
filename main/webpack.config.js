@@ -129,6 +129,12 @@ module.exports = {
 				from: "./p2p.json",
 				to: "./p2p.json"
 			}
+		]),
+		new CopyWebpackPlugin([
+			{
+				from: "./data",
+				to: "./data"
+			}
 		])
 	]
 };

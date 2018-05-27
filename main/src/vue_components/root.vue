@@ -15,6 +15,7 @@
 		position: absolute
 
 		opacity: 0 !important // sorry
+		pointer-events: none
 </style>
 
 <script language="text/javascript">

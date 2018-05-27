@@ -1,3 +1,6 @@
 {
-	"filter": ".*"
+	"filter": ".*",
+	"cert_signers": {
+		"zeroid.bit": ["1iD5ZQJMNXu43w1qLB8sfdHVKppVMduGz"]
+	}
 }

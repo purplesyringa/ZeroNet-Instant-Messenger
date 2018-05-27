@@ -11,6 +11,7 @@
 		position: relative
 		width: 300px
 		height: 52px
+		margin-bottom: 16px
 
 		@include apply-to(less-than, $phone)
 			width: 100%

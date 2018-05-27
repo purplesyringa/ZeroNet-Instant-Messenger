@@ -164,6 +164,12 @@
 			};
 		},
 
+		mounted() {
+			this.$nextTick(() => {
+				this.$eventBus.$emit("showChannel", "lobby");
+			});
+		},
+
 		methods: {
 			mouseDown(e) {
 				this.mouseDownEvent = e;

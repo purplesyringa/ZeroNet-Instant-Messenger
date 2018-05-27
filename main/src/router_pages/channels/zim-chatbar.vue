@@ -1,6 +1,6 @@
 <template>
 	<div class="footer">
-		<input type="text" class="input" placeholder="Type here...">
+		<input type="text" class="input" placeholder="Type here..." @keypress.enter="submit" v-model="value">
 	</div>
 </template>
 
@@ -20,6 +20,18 @@
 
 <script type="text/javascript">
 	export default {
-		name: "zim-chatbar"
+		name: "zim-chatbar",
+		data() {
+			return {
+				value: ""
+			};
+		},
+
+		methods: {
+			submit() {
+				this.$eventBus.$emit("sendMessage", this.value);
+				this.value = "";
+			}
+		}
 	};
 </script>

@@ -54,6 +54,7 @@
 	import ZiMMessageList from "./zim-message-list.vue";
 	import ZiMChatbar from "./zim-chatbar.vue";
 	import ZiMOnline from "./zim-online.vue";
+	import ChannelManager from "libs/channel/manager";
 
 	export default {
 		name: "home",

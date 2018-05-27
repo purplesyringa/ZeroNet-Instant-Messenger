@@ -44,118 +44,53 @@
 </style>
 
 <script type="text/javascript">
+	import ChannelManager from "libs/channel/manager";
+
 	export default {
 		name: "zim-message-list",
 		data() {
 			return {
-				messages: [
-					{
-						avatar: "https://randomuser.me/api/portraits/men/85.jpg",
-						name: "John Leider",
-						content: "Pinging ya all!"
-					},
-					{
-						avatar: "https://randomuser.me/api/portraits/men/85.jpg",
-						name: "John Leider",
-						content: "Anyone here?"
-					},
-					{
-						avatar: "https://randomuser.me/api/portraits/men/85.jpg",
-						name: "John Leider",
-						content: "Hello?!"
-					},
-					{
-						avatar: "https://randomuser.me/api/portraits/men/84.jpg",
-						name: "Git Center",
-						content: "I'm here"
-					},
-					{
-						avatar: "https://randomuser.me/api/portraits/men/85.jpg",
-						name: "John Leider",
-						content: "Hello @gitcenter!"
-					},
-					{
-						avatar: "https://randomuser.me/api/portraits/men/86.jpg",
-						name: "Krixano",
-						content: "Welcome back, John Leider!"
-					},
-					{
-						avatar: "https://randomuser.me/api/portraits/men/85.jpg",
-						name: "John Leider",
-						content: "Hi @Krixano!"
-					},
-					{
-						avatar: "https://randomuser.me/api/portraits/men/85.jpg",
-						name: "John Leider",
-						content: "Pinging ya all!"
-					},
-					{
-						avatar: "https://randomuser.me/api/portraits/men/85.jpg",
-						name: "John Leider",
-						content: "Anyone here?"
-					},
-					{
-						avatar: "https://randomuser.me/api/portraits/men/85.jpg",
-						name: "John Leider",
-						content: "Hello?!"
-					},
-					{
-						avatar: "https://randomuser.me/api/portraits/men/84.jpg",
-						name: "Git Center",
-						content: "I'm here"
-					},
-					{
-						avatar: "https://randomuser.me/api/portraits/men/85.jpg",
-						name: "John Leider",
-						content: "Hello @gitcenter!"
-					},
-					{
-						avatar: "https://randomuser.me/api/portraits/men/86.jpg",
-						name: "Krixano",
-						content: "Welcome back, John Leider!"
-					},
-					{
-						avatar: "https://randomuser.me/api/portraits/men/85.jpg",
-						name: "John Leider",
-						content: "Hi @Krixano!"
-					},
-					{
-						avatar: "https://randomuser.me/api/portraits/men/85.jpg",
-						name: "John Leider",
-						content: "Pinging ya all!"
-					},
-					{
-						avatar: "https://randomuser.me/api/portraits/men/85.jpg",
-						name: "John Leider",
-						content: "Anyone here?"
-					},
-					{
-						avatar: "https://randomuser.me/api/portraits/men/85.jpg",
-						name: "John Leider",
-						content: "Hello?!"
-					},
-					{
-						avatar: "https://randomuser.me/api/portraits/men/84.jpg",
-						name: "Git Center",
-						content: "I'm here"
-					},
-					{
-						avatar: "https://randomuser.me/api/portraits/men/85.jpg",
-						name: "John Leider",
-						content: "Hello @gitcenter!"
-					},
-					{
-						avatar: "https://randomuser.me/api/portraits/men/86.jpg",
-						name: "Krixano",
-						content: "Welcome back, John Leider!"
-					},
-					{
-						avatar: "https://randomuser.me/api/portraits/men/85.jpg",
-						name: "John Leider",
-						content: "Hi @Krixano!"
-					}
-				]
+				messages: [],
+				current: null
 			};
+		},
+
+		mounted() {
+			this.$eventBus.$on("showChannel", this.onShowChannel);
+			this.$eventBus.$on("showUser", this.onShowUser);
+			this.$eventBus.$on("sendMessage", this.onSendMessage);
+		},
+		destroyed() {
+			this.$eventBus.$off("showChannel", this.onShowChannel);
+			this.$eventBus.$off("showUser", this.onShowUser);
+			this.$eventBus.$off("sendMessage", this.onSendMessage);
+
+			if(this.current) {
+				this.current.off("message", this.onMessage);
+			}
+		},
+
+		methods: {
+			onShowChannel(name) {
+				if(this.current) {
+					this.current.off("message", this.onMessage);
+				}
+
+				this.current = ChannelManager.getChannel(name);
+				this.current.on("message", this.onMessage);
+			},
+
+			onMessage(message) {
+				this.messages.push({
+					avatar: "https://randomuser.me/api/portraits/men/85.jpg",
+					name: message.userName,
+					content: message.content
+				});
+			},
+
+			onSendMessage(text) {
+				this.current.send(text);
+			}
 		}
 	};
 </script>

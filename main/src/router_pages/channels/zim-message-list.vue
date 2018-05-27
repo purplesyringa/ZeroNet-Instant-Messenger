@@ -79,6 +79,7 @@
 
 				this.current = ChannelManager.getChannel(name);
 				this.current.on("message", this.onMessage);
+				this.messages = [];
 			},
 
 			async onMessage(message) {

@@ -221,6 +221,7 @@
 				this.channels.push({
 					name
 				});
+				this.$eventBus.$emit("showChannel", name);
 				this.current = `#${name}`;
 			}
 		}

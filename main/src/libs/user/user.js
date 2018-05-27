@@ -28,6 +28,18 @@ export default class User {
 		await zeroPage.publish(`data/users/${address}/content.json`);
 	}
 
+	async readPublicStorage(name) {
+		let address = await this.getAddress();
+		let json = await zeroFS.readFile(`data/users/${address}/public/${name}.json`);
+		return JSON.parse(json);
+	}
+	async writePublicStorage(name, value) {
+		let address = await this.getAddress();
+		let json = JSON.stringify(value);
+		await zeroFS.writeFile(`data/users/${address}/public/${name}.json`, json);
+		await zeroPage.publish(`data/users/${address}/content.json`);
+	}
+
 
 	async getConfigOption(key) {
 		if(this.cachedConfig === null) {

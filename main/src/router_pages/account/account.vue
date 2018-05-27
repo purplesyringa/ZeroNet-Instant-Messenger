@@ -1,6 +1,7 @@
 <template>
 	<div class="account-container">
 		<zim-input placeholder="Nickname" v-model="nickname" />
+		<zim-checkbox name="Save message history" v-model="saveHistory" />
 		<zim-button value="Save" @click="save" />
 	</div>
 </template>
@@ -19,12 +20,14 @@
 		name: "account",
 		data() {
 			return {
-				nickname: ""
+				nickname: "",
+				saveHistory: true
 			};
 		},
 
 		async mounted() {
 			this.nickname = await this.$user.getNickname();
+			this.saveHistory = await this.$user.getSaveHistory();
 		},
 
 		methods: {
@@ -32,6 +35,7 @@
 				if(this.nickname) {
 					this.$user.setNickname(this.nickname);
 				}
+				this.$user.setSaveHistory(this.saveHistory);
 			}
 		}
 	};

@@ -75,4 +75,11 @@ export default class User {
 	async setNickname(nickname) {
 		return await this.setConfigOption("nickname", nickname);
 	}
+
+	async getSaveHistory() {
+		return await this.getConfigOption("saveHistory");
+	}
+	async setSaveHistory(saveHistory) {
+		return await this.setConfigOption("saveHistory", saveHistory);
+	}
 }

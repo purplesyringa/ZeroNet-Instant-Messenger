@@ -40,6 +40,7 @@ const BABEL = {
 };
 
 
+let circularErrors;
 module.exports = {
 	context: path.resolve(__dirname, "./src"),
 	resolve: {
@@ -146,13 +147,21 @@ module.exports = {
 			allowAsyncCycles: false,
 			cwd: process.cwd(),
 
-			onDetected({module: webpackModuleRecord, paths, compilation}) {
-				if(
-					paths.indexOf("src\\route.js") == -1 &&
-					paths.indexOf("src/route.js") == -1
-				) {
-					compilation.errors.push(new Error(paths.join(" -> ")));
+			onStart() {
+				circularErrors = [];
+			},
+			onDetected({paths, compilation}) {
+				let newPaths = Array.from(paths);
+				newPaths.pop();
+				for(let i = 0; i < newPaths.length; i++) {
+					newPaths.push(newPaths.shift());
+					if(circularErrors.indexOf(newPaths.join(" -> ")) > -1) {
+						return;
+					}
 				}
+				circularErrors.push(newPaths.join(" -> "));
+
+				compilation.errors.push(new Error(paths.join(" -> ")));
 			}
 		})
 	]

@@ -1,5 +1,5 @@
 import User from "./user";
-import {zeroAuth, zeroFS} from "route.js";
+import {zeroAuth, zeroFS} from "zero";
 
 export default new class UserManager {
 	constructor() {

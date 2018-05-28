@@ -1,4 +1,4 @@
-import {zeroFS, zeroPage} from "route.js";
+import {zeroFS, zeroPage} from "zero";
 
 export default class ScheduledStorage {
 	constructor(path, contentJson) {

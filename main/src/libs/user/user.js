@@ -1,4 +1,4 @@
-import {zeroFS, zeroAuth, zeroPage} from "route.js";
+import {zeroFS, zeroAuth, zeroPage} from "zero";
 import ScheduledStorage from "./scheduled-storage";
 
 export default class User {

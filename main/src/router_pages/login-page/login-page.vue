@@ -78,7 +78,7 @@
 </style>
 
 <script type="text/javascript">
-	import {zeroAuth} from "route.js";
+	import {zeroAuth} from "zero";
 
 	export default {
 		name: "login-page",

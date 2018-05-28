@@ -1,4 +1,4 @@
-import {zeroPage} from "route.js";
+import {zeroPage} from "zero";
 import EventEmitter from "wolfy87-eventemitter";
 import Singleton from "singleton-js";
 

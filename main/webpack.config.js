@@ -3,6 +3,8 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const CircularDependencyPlugin = require("circular-dependency-plugin");
+
 
 function genSass(indentedSyntax) {
 	return [
@@ -137,6 +139,21 @@ module.exports = {
 				from: "./data",
 				to: "./data"
 			}
-		])
+		]),
+		new CircularDependencyPlugin({
+			exclude: /node_modules/,
+			failOnError: true,
+			allowAsyncCycles: false,
+			cwd: process.cwd(),
+
+			onDetected({module: webpackModuleRecord, paths, compilation}) {
+				if(
+					paths.indexOf("src\\route.js") == -1 &&
+					paths.indexOf("src/route.js") == -1
+				) {
+					compilation.errors.push(new Error(paths.join(" -> ")));
+				}
+			}
+		})
 	]
 };

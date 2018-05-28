@@ -8,16 +8,10 @@ export default class Channel extends EventEmitter {
 		this.name = name;
 
 		this.messenger = new P2PMessenger();
-		this.messenger.on("recvBroadcast", message => {
-			if(message.message.to === `channel:${this.name}`) {
-				this.emit("message", {
-					authId: message.signed_by,
-					userName: message.cert.split("/")[1],
-
-					content: message.message.content
-				});
-			}
-		});
+		this.messenger.on(
+			`recvBroadcastMessage:channel:${this.name}`,
+			message => this.emit("message", message)
+		);
 	}
 
 	send(message) {

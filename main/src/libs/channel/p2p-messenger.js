@@ -16,6 +16,19 @@ export default class P2PMessenger extends EventEmitter {
 				this.emit("recv", params);
 			}
 		});
+
+		// Reemit big events into small ones
+		this.on("recvBroadcast", message => {
+			if(message.message.to) {
+				this.emit("recvBroadcastMessage:" + message.message.to, {
+					to: message.message.to,
+					authId: message.signed_by,
+					userName: message.cert.split("/")[1],
+
+					content: message.message.content
+				});
+			}
+		});
 	}
 
 	broadcast(message) {

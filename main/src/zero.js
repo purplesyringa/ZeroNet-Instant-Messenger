@@ -11,5 +11,5 @@ import ZeroDB from "zero-dev-lib/ZeroDB";
 export const zeroDB = new ZeroDB(zeroPage);
 
 import ZeroAuth from "zero-dev-lib/ZeroAuth";
-export const zeroAuth = new ZeroAuth(zeroPage);
+export const zeroAuth = new ZeroAuth(zeroPage, ["zeroid.bit", "kxoid.bit", "kaffie.bit"]);
 zeroPage.auth = zeroAuth;

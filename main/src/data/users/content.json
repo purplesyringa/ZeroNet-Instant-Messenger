@@ -5,7 +5,8 @@
 	"user_contents": {
 		"cert_signers": {
 			"zeroid.bit": ["1iD5ZQJMNXu43w1qLB8sfdHVKppVMduGz"],
-			"kaffie.bit": ["1KH5BdNnqxh2KRWMMT8wUXzUgz4vVQ4S8p"]
+			"kaffie.bit": ["1KH5BdNnqxh2KRWMMT8wUXzUgz4vVQ4S8p"],
+			"kxoid.bit": ["12F5SvxoPR128aiudte78h8pY7mobroG6V"]
 		},
 		"permission_rules": {
 			".*": {

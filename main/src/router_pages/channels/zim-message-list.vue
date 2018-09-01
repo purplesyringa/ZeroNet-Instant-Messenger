@@ -72,7 +72,7 @@
 		},
 
 		methods: {
-			onShowChannel(name) {
+			async onShowChannel(name) {
 				if(this.current) {
 					this.current.off("message", this.onMessage);
 				}
@@ -80,6 +80,9 @@
 				this.current = ChannelManager.getChannel(name);
 				this.current.on("message", this.onMessage);
 				this.messages = [];
+				for(const message of await this.current.getSavedMessages()) {
+					await this.onMessage(message);
+				}
 			},
 
 			async onMessage(message) {

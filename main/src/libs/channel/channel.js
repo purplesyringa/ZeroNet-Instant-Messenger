@@ -10,8 +10,12 @@ export default class Channel extends EventEmitter {
 		this.messenger = new P2PMessenger();
 		this.messenger.on(
 			`recvBroadcastMessage:channel:${this.name}`,
-			message => this.emit("message", message)
+			message => {
+				this.savedMessages.push(message);
+				this.emit("message", message);
+			}
 		);
+		this.savedMessages = [];
 	}
 
 	send(message) {
@@ -19,5 +23,10 @@ export default class Channel extends EventEmitter {
 			to: `channel:${this.name}`,
 			content: message
 		});
+	}
+
+	async getSavedMessages() {
+		// Temporary solution
+		return this.savedMessages;
 	}
 }

@@ -12,7 +12,12 @@ export default new class UserManager {
 			return false;
 		}
 
-		return await zeroFS.fileExists(`data/users/${auth.address}/config.json`);
+		try {
+			await zeroFS.readFile(`data/users/${auth.address}/config.json`);
+			return true;
+		} catch(e) {
+			return false;
+		}
 	}
 	async register(nickname) {
 		let user = this.getSelf();
